@@ -35,12 +35,10 @@ public class Ventana extends JFrame{
         login_container.setLayout(null);
         this.add(login_container);
 
-
-
         //añadiendo elementos
 
         JLabel tag_tittle = new JLabel();
-        tag_tittle.setText("waltuh");
+        tag_tittle.setText("Acceder");
         tag_tittle.setSize(150,40);
         tag_tittle.setLocation(140,10);
         tag_tittle.setBackground(Color.white);
@@ -69,21 +67,6 @@ public class Ventana extends JFrame{
         password.setHorizontalAlignment(JLabel.CENTER);
         login_container.add(password);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //wazuh
 
         JTextField email_input = new JTextField();
@@ -96,8 +79,6 @@ public class Ventana extends JFrame{
         password_input.setSize(200,40);
         password_input.setLocation(20,200);
         login_container.add(password_input);
-
-
 
         JCheckBox rememberme = new JCheckBox();
         rememberme.setSize(170,40);
@@ -114,9 +95,5 @@ public class Ventana extends JFrame{
         login_container.add(acces_btn);
 
         this.repaint();
-
-
-    
-
     }
 }
