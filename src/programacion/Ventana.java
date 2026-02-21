@@ -4,8 +4,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class Ventana extends JFrame{
 
@@ -23,17 +28,82 @@ public class Ventana extends JFrame{
         this.setLayout(null);
         this.getContentPane().setBackground(Color.black);
 
+        JPanel login_container = new JPanel();
+        login_container.setSize(400,400);
+        login_container.setLocation(50,50);
+        login_container.setBackground(Color.yellow);
+        this.add(login_container);
+
+
+
         //añadiendo elementos
 
         JLabel tag_tittle = new JLabel();
         tag_tittle.setText("waltuh");
         tag_tittle.setSize(100,40);
-        tag_tittle.setLocation(175,50);
+        tag_tittle.setLocation(125,20);
         tag_tittle.setBackground(Color.white);
         tag_tittle.setOpaque(true);
         tag_tittle.setFont(new Font("Arial",Font.PLAIN,22));
         tag_tittle.setHorizontalAlignment(JLabel.CENTER);
-        this.add(tag_tittle);
+        login_container.add(tag_tittle);
+
+        JLabel usuario = new JLabel();
+        usuario.setText("usuario");
+        usuario.setSize(10,10);
+        usuario.setLocation(25,70);
+        usuario.setBackground(Color.white);
+        usuario.setOpaque(true);
+        usuario.setFont(new Font("Arial",Font.PLAIN,22));
+        //usuario.setHorizontalAlignment(JLabel.CENTER);
+        login_container.add(usuario);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //wazuh
+
+        JTextField email_input = new JTextField();
+        email_input.setSize(200,40);
+        email_input.setLocation(20,100);
+        login_container.add(email_input);
+
+
+        JPasswordField password_input = new JPasswordField();
+        password_input.setSize(200,40);
+        password_input.setLocation(20,200);
+        login_container.add(password_input);
+        this.repaint();
+
+
+
+        JCheckBox rememberme = new JCheckBox();
+        rememberme.setSize(140,40);
+        rememberme.setLocation(60,300);
+        rememberme.setText("waltuh");
+        rememberme.setOpaque(false);
+        login_container.add(rememberme);
+        this.repaint();
+
+        JButton acces_btn = new JButton();
+        acces_btn.setText("Acceder");
+        acces_btn.setBounds(100,350,200,40);
+        acces_btn.setFont(new Font("Arial",Font.ITALIC,18));
+        
+        login_container.add(acces_btn);
+
+        this.repaint();
+
 
     
 
