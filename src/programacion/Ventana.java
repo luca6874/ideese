@@ -42,22 +42,34 @@ public class Ventana extends JFrame{
         JLabel tag_tittle = new JLabel();
         tag_tittle.setText("waltuh");
         tag_tittle.setSize(150,40);
-        tag_tittle.setLocation(90,301);
+        tag_tittle.setLocation(140,10);
         tag_tittle.setBackground(Color.white);
-       // tag_tittle.setOpaque(true);
+        tag_tittle.setOpaque(true);
         tag_tittle.setFont(new Font("Arial",Font.PLAIN,22));
-        //tag_tittle.setHorizontalAlignment(JLabel.CENTER);
+        tag_tittle.setHorizontalAlignment(JLabel.CENTER);
         login_container.add(tag_tittle);
 
         JLabel usuario = new JLabel();
-        usuario.setText("pp");
-        usuario.setSize(10,10);
-        usuario.setLocation(90,200);
+        usuario.setText("ingrese correo");
+        usuario.setSize(200,20);
+        usuario.setLocation(10,70);
         usuario.setBackground(Color.white);
         //usuario.setOpaque(true);
-        usuario.setFont(new Font("Arial",Font.PLAIN,22));
-        //usuario.setHorizontalAlignment(JLabel.CENTER);
+        usuario.setFont(new Font("Arial",Font.PLAIN,19));
+        usuario.setHorizontalAlignment(JLabel.CENTER);
         login_container.add(usuario);
+
+        JLabel password = new JLabel();
+        password.setText("ingrese contraseña");
+        password.setSize(200,20);
+        password.setLocation(10,170);
+        password.setBackground(Color.white);
+        //usuario.setOpaque(true);
+        password.setFont(new Font("Arial",Font.PLAIN,19));
+        password.setHorizontalAlignment(JLabel.CENTER);
+        login_container.add(password);
+
+
 
 
 
@@ -88,9 +100,9 @@ public class Ventana extends JFrame{
 
 
         JCheckBox rememberme = new JCheckBox();
-        rememberme.setSize(140,40);
+        rememberme.setSize(170,40);
         rememberme.setLocation(60,300);
-        rememberme.setText("waltuh");
+        rememberme.setText("¿recordar contraseña?");
         rememberme.setOpaque(false);
         login_container.add(rememberme);
 
