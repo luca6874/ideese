@@ -7,6 +7,7 @@ import java.awt.Font;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,11 +42,7 @@ public class Ventana extends JFrame{
         //añadiendo elementos
 
         JLabel tag_tittle = new JLabel();
-<<<<<<< HEAD
         tag_tittle.setText("Acceso");
-=======
-        tag_tittle.setText("Acceder");
->>>>>>> 728a7ef69dcbb1e41e2db1c1f4fa8c2271150c33
         tag_tittle.setSize(150,40);
         tag_tittle.setLocation(140,10);
         tag_tittle.setBackground(Color.white);
@@ -155,7 +152,18 @@ public class Ventana extends JFrame{
         terms.add(accept_terms);
         terms.add(reject_terms);
         
+        //waza
 
+        String[] colonias = {"Camino real", "Miramar", "Diana laura", "8 de octubre"};
+
+        JComboBox colonias_combo = new JComboBox(colonias);
+
+        colonias_combo.setBounds(50,310,300,50);
+        rg_container.add(colonias_combo);
+
+        JButton register_btn = new JButton("Crear cuenta");
+        register_btn.setBounds(50,340,300,55);
+        rg_container.add(register_btn);
         
 
 
