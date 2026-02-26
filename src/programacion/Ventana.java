@@ -41,7 +41,11 @@ public class Ventana extends JFrame{
         //añadiendo elementos
 
         JLabel tag_tittle = new JLabel();
+<<<<<<< HEAD
         tag_tittle.setText("Acceso");
+=======
+        tag_tittle.setText("Acceder");
+>>>>>>> 728a7ef69dcbb1e41e2db1c1f4fa8c2271150c33
         tag_tittle.setSize(150,40);
         tag_tittle.setLocation(140,10);
         tag_tittle.setBackground(Color.white);
