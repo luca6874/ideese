@@ -4,12 +4,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Ventana extends JFrame{
@@ -19,12 +22,12 @@ public class Ventana extends JFrame{
         //Configuraciones basicas
 
         this.setVisible(true);
-        this.setBounds(300,300,500,500);
+        this.setBounds(400,400,1000,600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(200,200));
-        this.setMaximumSize(new Dimension(800,800));
-        this.setTitle("hola");
+        this.setMaximumSize(new Dimension(1000,1000));
+        this.setTitle("Waltuh");
         this.setLayout(null);
         this.getContentPane().setBackground(Color.black);
 
@@ -35,42 +38,37 @@ public class Ventana extends JFrame{
         login_container.setLayout(null);
         this.add(login_container);
 
-
-
         //añadiendo elementos
 
         JLabel tag_tittle = new JLabel();
-        tag_tittle.setText("waltuh");
+        tag_tittle.setText("Acceso");
         tag_tittle.setSize(150,40);
-        tag_tittle.setLocation(90,301);
+        tag_tittle.setLocation(140,10);
         tag_tittle.setBackground(Color.white);
-       // tag_tittle.setOpaque(true);
+        tag_tittle.setOpaque(true);
         tag_tittle.setFont(new Font("Arial",Font.PLAIN,22));
-        //tag_tittle.setHorizontalAlignment(JLabel.CENTER);
+        tag_tittle.setHorizontalAlignment(JLabel.CENTER);
         login_container.add(tag_tittle);
 
         JLabel usuario = new JLabel();
-        usuario.setText("pp");
-        usuario.setSize(10,10);
-        usuario.setLocation(90,200);
+        usuario.setText("ingrese correo");
+        usuario.setSize(200,20);
+        usuario.setLocation(10,70);
         usuario.setBackground(Color.white);
         //usuario.setOpaque(true);
-        usuario.setFont(new Font("Arial",Font.PLAIN,22));
-        //usuario.setHorizontalAlignment(JLabel.CENTER);
+        usuario.setFont(new Font("Arial",Font.PLAIN,19));
+        usuario.setHorizontalAlignment(JLabel.CENTER);
         login_container.add(usuario);
 
-
-
-
-
-
-
-
-
-
-
-
-
+        JLabel password = new JLabel();
+        password.setText("ingrese contraseña");
+        password.setSize(200,20);
+        password.setLocation(10,170);
+        password.setBackground(Color.white);
+        //usuario.setOpaque(true);
+        password.setFont(new Font("Arial",Font.PLAIN,19));
+        password.setHorizontalAlignment(JLabel.CENTER);
+        login_container.add(password);
 
         //wazuh
 
@@ -85,12 +83,10 @@ public class Ventana extends JFrame{
         password_input.setLocation(20,200);
         login_container.add(password_input);
 
-
-
         JCheckBox rememberme = new JCheckBox();
-        rememberme.setSize(140,40);
+        rememberme.setSize(170,40);
         rememberme.setLocation(60,300);
-        rememberme.setText("waltuh");
+        rememberme.setText("¿recordar contraseña?");
         rememberme.setOpaque(false);
         login_container.add(rememberme);
 
@@ -101,10 +97,71 @@ public class Ventana extends JFrame{
         
         login_container.add(acces_btn);
 
+        //el otro coso
+        JPanel rg_container = new JPanel();
+        rg_container.setBounds(500,50,400,400);
+        rg_container.setOpaque(true);
+        rg_container.setBackground(Color.green);
+        rg_container.setLayout(null);
+        this.add(rg_container);
+        //La etiqueta
+        JLabel bio_tag = new JLabel("BIO");
+        bio_tag.setBounds(50,50,300,40);
+        bio_tag.setHorizontalAlignment(JLabel.CENTER);
+        bio_tag.setOpaque(true);
+        rg_container.add(bio_tag);
+        
+        JTextArea bio_text = new JTextArea();
+        bio_text.setLocation(50,100);
+        bio_text.setSize(300,80);
+        rg_container.add(bio_text);
+
+        //checkboxes
+
+        JCheckBox dulce = new JCheckBox("Dulce");
+        dulce.setBounds(50,200,100,40);
+        dulce.setOpaque(false);
+        rg_container.add(dulce);
+
+
+        JCheckBox salado = new JCheckBox("salado");
+        salado.setBounds(150,200,100,40);
+        salado.setOpaque(false);
+        rg_container.add(salado);
+
+
+        JCheckBox saludable = new JCheckBox("Saludable");
+        saludable.setBounds(250,200,100,40);
+        saludable.setOpaque(false);
+        rg_container.add(saludable);
+
+        //boton redondo 
+
+        JRadioButton accept_terms = new JRadioButton("Acepto los terminos");
+        accept_terms.setBounds(50,260,200,40);
+        accept_terms.setOpaque(false);
+        rg_container.add(accept_terms);
+
+        JRadioButton reject_terms = new JRadioButton("Rechazo los terminos");
+        reject_terms.setBounds(200,260,200,40);
+        reject_terms.setOpaque(false);
+        rg_container.add(reject_terms);
+
+        ButtonGroup terms = new ButtonGroup();
+        terms.add(accept_terms);
+        terms.add(reject_terms);
+        
+
+        
+
+
+
+
+
+
+
+
+
         this.repaint();
-
-
-    
-
     }
 }
