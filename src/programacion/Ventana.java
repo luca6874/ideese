@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -33,6 +35,10 @@ public class Ventana extends JFrame{
         this.setLayout(null);
         this.getContentPane().setBackground(Color.black);
 
+        this.repaint();
+    }
+
+    public void login(){
         JPanel login_container = new JPanel();
         login_container.setSize(400,470);
         login_container.setLocation(50,50);
@@ -42,8 +48,6 @@ public class Ventana extends JFrame{
 
         login_container.setBorder(BorderFactory.createRaisedBevelBorder());
         login_container.setBorder(BorderFactory.createLoweredBevelBorder());
-
-
 
 
         //añadiendo elementos
@@ -105,7 +109,11 @@ public class Ventana extends JFrame{
         
         login_container.add(acces_btn);
 
-        //el otro coso
+
+        }
+
+        public void registro(){
+            //el otro coso
         JPanel rg_container = new JPanel();
         rg_container.setBounds(500,50,400,470);
         rg_container.setOpaque(true);
@@ -114,8 +122,6 @@ public class Ventana extends JFrame{
         this.add(rg_container);
         rg_container.setBorder(BorderFactory.createRaisedBevelBorder());
         rg_container.setBorder(BorderFactory.createLoweredBevelBorder());
-
-
 
 
 
@@ -227,11 +233,35 @@ public class Ventana extends JFrame{
         rg_container.add(acceso_etiqueta);
 
 
+        }
+        public void users(){
+            JPanel panel_users = new JPanel();
+            panel_users.setSize(200,300);
+            panel_users.setLocation(100,200);
+            panel_users.setLayout(null);
+            panel_users.setBackground(Color.white);
+            this.add(panel_users);
+
+            String[] table_head ={"No.control","Nombre","Apellidos","Correo electronico","Semestre","Carrera","Acciones"};
+            
+            Object[][]table_body = {{"20231001","Carlos","Ramirez Lopez","carlos.ramirez@gmail.com","3°","ingenieria en sistemas","Editar"},{"20231002","Maria", "Hernandez Torres","maria.torres@gmail.com","1°","Editar"}};
 
 
-        
+            JTable students = new JTable(table_body,table_head);
+
+            JScrollPane final_table = new JScrollPane(students);
+            final_table.setSize(700,150);
+            final_table.setLocation(100,100);
+            
+            panel_users.add(final_table);
+
+            panel_users.repaint();
 
 
-        this.repaint();
-    }
+            
+        }
+
+
+
+
 }
