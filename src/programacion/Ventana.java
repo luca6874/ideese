@@ -33,8 +33,10 @@ public class Ventana extends JFrame{
         this.setMaximumSize(new Dimension(1000,1000));
         this.setTitle("Waltuh");
         this.setLayout(null);
-        this.getContentPane().setBackground(Color.black);
+        this.getContentPane().setBackground(Color.pink);
 
+        this.users();
+        //this.login();
         this.repaint();
     }
 
@@ -47,7 +49,6 @@ public class Ventana extends JFrame{
         this.add(login_container);
 
         login_container.setBorder(BorderFactory.createRaisedBevelBorder());
-        login_container.setBorder(BorderFactory.createLoweredBevelBorder());
 
 
         //añadiendo elementos
@@ -236,22 +237,146 @@ public class Ventana extends JFrame{
         }
         public void users(){
             JPanel panel_users = new JPanel();
-            panel_users.setSize(200,300);
-            panel_users.setLocation(100,200);
+            panel_users.setSize(970,850);
+            panel_users.setLocation(10,10);
             panel_users.setLayout(null);
-            panel_users.setBackground(Color.white);
+            panel_users.setBackground(Color.pink);
             this.add(panel_users);
+            panel_users.setBorder(BorderFactory.createLoweredBevelBorder());
 
-            String[] table_head ={"No.control","Nombre","Apellidos","Correo electronico","Semestre","Carrera","Acciones"};
+            JButton dld_btn = new JButton();
+            dld_btn.setText("Descargar");
+            dld_btn.setBounds(750,140,100,30);
+            dld_btn.setFont(new Font("Arial",Font.ITALIC,13));
+        
+            panel_users.add(dld_btn);
+
+            JButton add_btn = new JButton();
+            add_btn.setText("Añadir");
+            add_btn.setBounds(630,140,100,30);
+            add_btn.setFont(new Font("Arial",Font.ITALIC,13));
+        
+            panel_users.add(add_btn);
+
+
+            JLabel total = new JLabel();
+            total.setText("Usuarios 20");
+            total.setSize(200,40);
+            total.setLocation(50,140);
+            total.setBackground(Color.CYAN);
+            total.setOpaque(true);
+            total.setFont(new Font("Times New Roman",Font.PLAIN,22));
+            total.setHorizontalAlignment(JLabel.CENTER);
+            total.setBorder(BorderFactory.createRaisedBevelBorder());
+            panel_users.add(total);
+
+            JLabel titulo = new JLabel();
+            titulo.setText("Usuarios");
+            titulo.setSize(200,50);
+            titulo.setLocation(350,30);
+            //titulo.setBackground(Color.YELLOW);
+            titulo.setOpaque(false);
+            titulo.setFont(new Font("Comic Sans MS",Font.PLAIN,40));
+            titulo.setHorizontalAlignment(JLabel.CENTER);
+            panel_users.add(titulo);
+
+
+
+
+
+
+
+            String[] table_head ={"No.control","Nombre","Apellidos","Correo electronico","Semestre","Carrera","Estado"};
             
-            Object[][]table_body = {{"20231001","Carlos","Ramirez Lopez","carlos.ramirez@gmail.com","3°","ingenieria en sistemas","Editar"},{"20231002","Maria", "Hernandez Torres","maria.torres@gmail.com","1°","Editar"}};
+            Object[][] table_body = {
 
+                {"20231001","Carlos","Ramirez Lopez",
+                "carlos.ramirez@gmail.com","3°",
+                "Ingenieria en Sistemas","Activo"},
+
+                {"20231002","Maria","Hernandez Torres",
+                "maria.torres@gmail.com","1°",
+                "Ingenieria Industrial","Activo"},
+
+                {"20231003","Luis","Garcia Mendoza",
+                "luis.garcia@gmail.com","2°",
+                "Ingenieria Civil","Activo"},
+
+                {"20231004","Ana","Martinez Ruiz",
+                "ana.martinez@gmail.com","4°",
+                "Arquitectura","Inactivo"},
+
+                {"20231005","Jorge","Lopez Castillo",
+                "jorge.lopez@gmail.com","5°",
+                "Ingenieria Mecatronica","Activo"},
+
+                {"20231006","Fernanda","Sanchez Perez",
+                "fernanda.sanchez@gmail.com","6°",
+                "Ingenieria en Sistemas","Activo"},
+
+                {"20231007","Diego","Morales Cruz",
+                "diego.morales@gmail.com","2°",
+                "Contaduria","Activo"},
+
+                {"20231008","Valeria","Ortega Flores",
+                "valeria.ortega@gmail.com","7°",
+                "Administracion","Inactivo"},
+
+                {"20231009","Ricardo","Navarro Diaz",
+                "ricardo.navarro@gmail.com","8°",
+                "Ingenieria Industrial","Activo"},
+
+                {"20231010","Sofia","Vargas Romero",
+                "sofia.vargas@gmail.com","3°",
+                "Ingenieria Civil","Activo"},
+
+                {"20231011","Andres","Gutierrez Silva",
+                "andres.gutierrez@gmail.com","1°",
+                "Ingenieria en Sistemas","Activo"},
+
+                {"20231012","Daniela","Rojas Castillo",
+                "daniela.rojas@gmail.com","2°",
+                "Psicologia","Activo"},
+
+                {"20231013","Miguel","Torres Alvarez",
+                "miguel.torres@gmail.com","3°",
+                "Ingenieria Industrial","Activo"},
+
+                {"20231014","Camila","Fernandez Soto",
+                "camila.fernandez@gmail.com","4°",
+                "Derecho","Activo"},
+
+                {"20231015","Sebastian","Jimenez Lara",
+                "sebastian.jimenez@gmail.com","5°",
+                "Ingenieria Civil","Inactivo"},
+
+                {"20231016","Paola","Mendoza Reyes",
+                "paola.mendoza@gmail.com","6°",
+                "Arquitectura","Inactivo"},
+
+                {"20231017","Emilio","Castro Navarro",
+                "emilio.castro@gmail.com","7°",
+                "Administracion","Inactivo"},
+
+                {"20231018","Lucia","Herrera Campos",
+                "lucia.herrera@gmail.com","8°",
+                "Contaduria","Inactivo"},
+
+                {"20231019","Alejandro","Vega Morales",
+                "alejandro.vega@gmail.com","2°",
+                "Ingenieria Mecatronica","Inactivo"},
+
+                {"20231020","Natalia","Salazar Ortiz",
+                "natalia.salazar@gmail.com","3°",
+                "Ingenieria en Sistemas","Activo"}
+
+             };
 
             JTable students = new JTable(table_body,table_head);
 
             JScrollPane final_table = new JScrollPane(students);
-            final_table.setSize(700,150);
-            final_table.setLocation(100,100);
+            final_table.setSize(800,300);
+            final_table.setLocation(50,200);
             
             panel_users.add(final_table);
 
@@ -261,7 +386,7 @@ public class Ventana extends JFrame{
             
         }
 
-
+        
 
 
 }
