@@ -11,6 +11,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -25,7 +28,6 @@ public class Ventana extends JFrame{
 
         //Configuraciones basicas
 
-        this.setVisible(true);
         this.setBounds(400,400,1000,600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,12 +37,52 @@ public class Ventana extends JFrame{
         this.setLayout(null);
         this.getContentPane().setBackground(Color.pink);
 
+
+        JMenuBar barra = new JMenuBar();
+        this.setJMenuBar(barra);
+
+        JMenu menu1 = new JMenu("Archivo");
+        barra.add(menu1);
+
+        JMenuItem opt1 = new JMenuItem("Abrir");
+        menu1.add(opt1);
+
+        JMenuItem opt2 = new JMenuItem("Cerrar");
+        menu1.add(opt2);
+
+        JMenuItem opt3 = new JMenuItem("Más");
+        menu1.add(opt3);
+
+        menu1.addSeparator();
+
+        JMenu menu2 = new JMenu("Guardar");
+
+        menu1.add(menu2);
+
+        JMenuItem opt4 = new JMenuItem("Guardar");
+        menu2.add(opt4);
+
+        JMenuItem opt5 = new JMenuItem("Guardar como");
+        menu2.add(opt5);
+
+        
+
+
+
+
+
+
         this.users();
         //this.login();
+        this.setVisible(true);
         this.repaint();
     }
 
     public void login(){
+
+
+        //aqui es el login, donde van los botones y todo eso
+
         JPanel login_container = new JPanel();
         login_container.setSize(400,470);
         login_container.setLocation(50,50);
@@ -51,7 +93,7 @@ public class Ventana extends JFrame{
         login_container.setBorder(BorderFactory.createRaisedBevelBorder());
 
 
-        //añadiendo elementos
+        //añadiendo elementos al panel de login
 
         JLabel tag_tittle = new JLabel();
         tag_tittle.setText("Acceso");
