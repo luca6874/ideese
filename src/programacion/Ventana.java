@@ -3,9 +3,12 @@ package programacion;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -65,9 +68,13 @@ public class Ventana extends JFrame{
         JMenuItem opt5 = new JMenuItem("Guardar como");
         menu2.add(opt5);
 
-        
-
-
+       
+        try {
+    Image iconimage = ImageIO.read(getClass().getResource("/imagen/2164111.png"));
+    this.setIconImage(iconimage);
+} catch (Exception e) {
+    e.printStackTrace();
+}
 
 
 
@@ -428,7 +435,6 @@ public class Ventana extends JFrame{
             
         }
 
-        
 
 
 }
