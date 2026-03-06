@@ -68,6 +68,7 @@ public class Ventana extends JFrame{
         JMenuItem opt5 = new JMenuItem("Guardar como");
         menu2.add(opt5);
 
+<<<<<<< HEAD
        //la imagen
         try {
             Image iconimage = ImageIO.read(getClass().getResource("/imagen/2164111.png"));
@@ -75,12 +76,22 @@ public class Ventana extends JFrame{
         } catch (Exception e) {
             e.printStackTrace();
         }
+=======
+       
+        ImageIcon icon = new ImageIcon("src/imagen/2164111.png");
+        this.setIconImage(icon.getImage());
+>>>>>>> 2da31977b0b20b360934f2461c4a69070595870c
 
 
 
 
+<<<<<<< HEAD
         this.calculadora();
         //this.login();
+=======
+        //this.users();
+        this.login();
+>>>>>>> 2da31977b0b20b360934f2461c4a69070595870c
         this.setVisible(true);
         this.repaint();
     }
@@ -90,14 +101,22 @@ public class Ventana extends JFrame{
 
         //aqui es el login, donde van los botones y todo eso
 
+
         JPanel login_container = new JPanel();
         login_container.setSize(400,470);
         login_container.setLocation(50,50);
-        login_container.setBackground(Color.yellow);
         login_container.setLayout(null);
         this.add(login_container);
 
         login_container.setBorder(BorderFactory.createRaisedBevelBorder());
+
+
+        ImageIcon fondo = new ImageIcon("src/imagen/2164111.png");
+        JLabel fondo_label = new JLabel(fondo);
+        fondo_label.setBounds(0,0,600,470);
+
+        login_container.add(fondo_label);
+
 
 
         //añadiendo elementos al panel de login
@@ -105,11 +124,13 @@ public class Ventana extends JFrame{
         JLabel tag_tittle = new JLabel();
         tag_tittle.setText("Acceso");
         tag_tittle.setSize(150,40);
-        tag_tittle.setLocation(140,10);
-        tag_tittle.setBackground(Color.white);
+        tag_tittle.setLocation(120,10);
+        tag_tittle.setBackground(Color.cyan);
         tag_tittle.setOpaque(true);
-        tag_tittle.setFont(new Font("Arial",Font.PLAIN,22));
+        tag_tittle.setFont(new Font("Arial",Font.ITALIC,22));
         tag_tittle.setHorizontalAlignment(JLabel.CENTER);
+        tag_tittle.setBorder(BorderFactory.createRaisedBevelBorder());
+
         login_container.add(tag_tittle);
 
         JLabel usuario = new JLabel();
@@ -118,7 +139,7 @@ public class Ventana extends JFrame{
         usuario.setLocation(10,70);
         usuario.setBackground(Color.white);
         //usuario.setOpaque(true);
-        usuario.setFont(new Font("Arial",Font.PLAIN,19));
+        usuario.setFont(new Font("Arial",Font.BOLD,19));
         usuario.setHorizontalAlignment(JLabel.CENTER);
         login_container.add(usuario);
 
@@ -128,7 +149,7 @@ public class Ventana extends JFrame{
         password.setLocation(10,170);
         password.setBackground(Color.white);
         //usuario.setOpaque(true);
-        password.setFont(new Font("Arial",Font.PLAIN,19));
+        password.setFont(new Font("Arial",Font.BOLD,19));
         password.setHorizontalAlignment(JLabel.CENTER);
         login_container.add(password);
 
@@ -159,6 +180,8 @@ public class Ventana extends JFrame{
         
         login_container.add(acces_btn);
 
+
+        login_container.setComponentZOrder(fondo_label, login_container.getComponentCount()-1);
 
         }
 
