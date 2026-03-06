@@ -31,16 +31,16 @@ public class Ventana extends JFrame{
 
         //Configuraciones basicas
 
-        this.setBounds(400,400,1000,600);
+        this.setBounds(400,300,1000,800);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(200,200));
         this.setMaximumSize(new Dimension(1000,1000));
         this.setTitle("Waltuh");
         this.setLayout(null);
-        this.getContentPane().setBackground(Color.pink);
+        this.getContentPane().setBackground(Color.decode("#e56022"));
 
-
+        //la tarea
         JMenuBar barra = new JMenuBar();
         this.setJMenuBar(barra);
 
@@ -68,18 +68,18 @@ public class Ventana extends JFrame{
         JMenuItem opt5 = new JMenuItem("Guardar como");
         menu2.add(opt5);
 
-       
+       //la imagen
         try {
-    Image iconimage = ImageIO.read(getClass().getResource("/imagen/2164111.png"));
-    this.setIconImage(iconimage);
-} catch (Exception e) {
-    e.printStackTrace();
-}
+            Image iconimage = ImageIO.read(getClass().getResource("/imagen/2164111.png"));
+            this.setIconImage(iconimage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
 
-        this.users();
+        this.calculadora();
         //this.login();
         this.setVisible(true);
         this.repaint();
@@ -433,6 +433,53 @@ public class Ventana extends JFrame{
 
 
             
+        }
+
+        public void calculadora(){
+            JPanel panel_users = new JPanel();
+            panel_users.setSize(450,600);
+            panel_users.setLocation(250,50);
+            panel_users.setLayout(null);
+            panel_users.setBackground(Color.decode("#100f10"));
+            this.add(panel_users);
+            panel_users.setBorder(BorderFactory.createLoweredBevelBorder());
+
+            JLabel field = new JLabel("180.00");
+            field.setSize(420,40);
+            field.setLocation(15,10);
+            field.setOpaque(true);
+            field.setBackground(Color.white);
+            field.setFont(new Font("Arial",Font.BOLD,22));
+            field.setBorder(BorderFactory.createEmptyBorder(10,20,10,20));
+            panel_users.add(field);
+
+            int cor_x = 15, cor_y = 60;
+            String[] botones = {"ce","","","","7","8","9","/","4","5","6","*","1","2","3","-","0",".","=","+"};
+
+           
+            for(int i = 0; i<20; i++){
+                JButton ce = new JButton(botones[i]);
+                ce.setSize(90,90);
+                ce.setLocation(cor_x,cor_y);
+
+                //cor_y+=60;
+                cor_x+=110;
+
+                panel_users.add(ce);
+
+                if(cor_x>=420){
+                    cor_x = 15;
+                    cor_y += 110;
+                }
+
+            }
+
+
+
+
+
+
+
         }
 
 
