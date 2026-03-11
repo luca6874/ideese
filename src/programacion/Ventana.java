@@ -2,6 +2,7 @@ package programacion;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
 
@@ -24,6 +25,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
 
 public class Ventana extends JFrame{
 
@@ -31,14 +36,14 @@ public class Ventana extends JFrame{
 
         //Configuraciones basicas
 
-        this.setBounds(400,400,1000,600);
+        this.setBounds(400,400,800,600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(200,200));
-        this.setMaximumSize(new Dimension(1000,1000));
+        this.setMaximumSize(new Dimension(800,800));
+        this.setLayout(new BorderLayout());
         this.setTitle("Waltuh");
-        this.setLayout(null);
-        this.getContentPane().setBackground(Color.pink);
+        this.getContentPane().setBackground(Color.decode("#ebbad8"));
 
 
         JMenuBar barra = new JMenuBar();
@@ -74,12 +79,177 @@ public class Ventana extends JFrame{
 
 
 
-
+        this.tax();
+        //this.calculadora();
         //this.users();
-        this.login();
+        //this.login();
         this.setVisible(true);
         this.repaint();
     }
+
+    public void tax(){
+
+
+        JPanel contenedor = new JPanel();
+        contenedor.setLayout(new BorderLayout());
+        this.add(contenedor, BorderLayout.CENTER);
+
+        JPanel contenedor2 = new JPanel();
+        contenedor2.setLayout(new BorderLayout());
+        this.add(contenedor2, BorderLayout.SOUTH);
+
+
+        JPanel borde1 = new JPanel();
+        borde1.setBackground(Color.decode("#ebbad8"));
+        this.add(borde1, BorderLayout.EAST);
+
+        JPanel borde2 = new JPanel();
+        borde2.setBackground(Color.decode("#ebbad8"));
+        this.add(borde2, BorderLayout.WEST);
+
+
+
+        JLabel titulo = new JLabel();
+        titulo.setText("                              Calculando el interés"); //pueden cuestionar mis metodos momento xd
+        titulo.setFont(new Font("Arial",Font.BOLD,20));
+        this.add(titulo, BorderLayout.NORTH);
+
+        /*Todo lo de la enttrada */
+        JPanel entrada = new JPanel();
+        entrada.setBackground(Color.decode("#86f7b1"));
+        entrada.setLayout(new GridLayout(3, 2));
+
+        contenedor.add(entrada, BorderLayout.CENTER);
+
+        entrada.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.decode("#000000")),  "Datos de entrada"));
+
+        //los botones
+        JPanel botones = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10)); 
+               botones.setBackground(Color.decode("#94e9b5"));
+
+
+        //imagen guardar 
+        ImageIcon icon = new ImageIcon("src/imagen/guardar.png");
+
+        Image img = icon.getImage();
+        Image nueva = img.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        ImageIcon iconPequeno = new ImageIcon(nueva);
+        JButton calcular = new JButton("Calcular", iconPequeno);
+
+        //imagen cancelar
+
+        ImageIcon icon2 = new ImageIcon("src/imagen/cancelar.png");
+
+        Image img2 = icon2.getImage();
+        Image nueva2 = img2.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        ImageIcon iconPequeno2 = new ImageIcon(nueva2);
+        JButton cancelar = new JButton("Cancelar", iconPequeno2);
+       
+
+
+
+
+        botones.add(calcular);
+        botones.add(cancelar);
+
+        contenedor.add(botones, BorderLayout.SOUTH);
+
+
+
+
+        //Botones de operacion
+        JLabel capital = new JLabel("capital: ");
+        capital.setBackground(Color.decode("#56f593"));
+        capital.setOpaque(true);
+        entrada.add(capital);
+        JTextField capital_txt = new JTextField();
+        entrada.add(capital_txt);
+
+        JLabel Tiempo = new JLabel("Tiempo: ");
+        Tiempo.setBackground(Color.decode("#5ff599"));
+        entrada.add(Tiempo);
+        JTextField tiempo_txt = new JTextField();
+        entrada.add(tiempo_txt);
+
+        JLabel tasa = new JLabel("Tasa de interes: ");
+        tasa.setBackground(Color.decode("#56f593"));
+        tasa.setOpaque(true);
+        entrada.add(tasa);
+        JTextField tasa_txt = new JTextField();
+        entrada.add(tasa_txt);
+
+
+
+
+
+
+
+
+        /*Todo lo de salida */
+        JPanel salida = new JPanel();
+        salida.setBackground(Color.decode("#fa7f7f"));
+        salida.setLayout(new GridLayout(2,2));
+        contenedor2.add(salida, BorderLayout.CENTER);
+        salida.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.RED),"Resultados"));
+
+
+        JPanel borde = new JPanel();
+        borde.setBackground(Color.decode("#ebbad8"));
+        contenedor2.add(borde, BorderLayout.SOUTH);
+
+        JPanel borde3 = new JPanel();
+        borde3.setBackground(Color.decode("#ebbad8"));
+        contenedor2.add(borde3, BorderLayout.EAST);
+
+        JPanel borde4 = new JPanel();
+        borde4.setBackground(Color.decode("#ebbad8"));
+        contenedor2.add(borde4, BorderLayout.WEST);
+
+        JPanel borde5 = new JPanel();
+        borde5.setBackground(Color.decode("#ebbad8"));
+        contenedor2.add(borde5, BorderLayout.NORTH);
+
+
+
+
+
+
+
+
+
+
+
+        JLabel msj_interes = new JLabel("Interés: ");
+        msj_interes.setBackground(Color.decode("#f14e4e"));
+        msj_interes.setOpaque(true);
+        msj_interes.setBorder(BorderFactory.createLineBorder(Color.red));
+        salida.add(msj_interes);
+
+
+        JLabel result_interes = new JLabel("");
+        result_interes.setBackground(Color.white);
+        result_interes.setOpaque(true);
+        result_interes.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        salida.add(result_interes);
+
+        JLabel msj_monto = new JLabel("Monto: ");
+        msj_monto.setBackground(Color.decode("#f14e4e"));
+        msj_monto.setOpaque(true);
+        msj_monto.setBorder(BorderFactory.createLineBorder(Color.RED));
+        salida.add(msj_monto);
+
+        JLabel result_monto = new JLabel("");
+        result_monto.setBackground(Color.white);
+        result_monto.setOpaque(true);
+        result_monto.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        salida.add(result_monto);
+
+
+
+
+    }
+
+
 
     public void login(){
 
@@ -442,6 +612,63 @@ public class Ventana extends JFrame{
 
             
         }
+
+        public void calculadora(){
+            JPanel panel_users = new JPanel();
+            panel_users.setSize(500,700);
+            panel_users.setLocation(250,50);
+            panel_users.setBackground(Color.decode("#d4abd4"));
+
+            BorderLayout mi_layout = new BorderLayout();
+            mi_layout.setVgap(20);
+
+            panel_users.setLayout(mi_layout);
+            this.add(panel_users);
+
+            JLabel field = new JLabel("180.00");
+            field.setOpaque(true);
+            field.setBackground(Color.white);
+            field.setFont(new Font("Arial",Font.BOLD,22));
+            field.setBorder(BorderFactory.createEmptyBorder(10,20,10,20));
+            panel_users.add(field,BorderLayout.NORTH);
+
+
+            JPanel centro = new JPanel();
+            centro.setBackground(Color.red);
+            centro.setLayout(new GridLayout(4,3));
+            panel_users.add(centro,BorderLayout.CENTER);
+
+            String[] botones = {"9","8","7","6","5","4","3","2","1","0",".",""};
+
+           
+            for(int i = 0; i<botones.length; i++){
+                JButton ce = new JButton(botones[i]);
+                ce.setSize(100,100);
+                ce.setFont(new Font("Arial",Font.BOLD,22));
+                centro.add(ce);
+            }
+
+           
+            JPanel sidebar = new JPanel();
+            sidebar.setBackground(Color.GRAY);
+            sidebar.setLayout(new GridLayout(6,1));
+            panel_users.add(sidebar,BorderLayout.EAST);
+
+            String[] botones2 = {"+","-","*","/","=","CE"};
+
+            for (int i = 0; i < botones2.length; i++) {
+
+                JButton ce = new JButton(botones2[i]);
+                ce.setSize(100,100);
+                ce.setFont(new Font("Arial",Font.BOLD,22));
+                sidebar.add(ce);
+            }
+
+
+
+
+        }
+
 
 
 
