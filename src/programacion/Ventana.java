@@ -27,7 +27,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 
 
 public class Ventana extends JFrame{
@@ -78,8 +77,8 @@ public class Ventana extends JFrame{
         this.setIconImage(icon.getImage());
 
 
-
-        this.tax();
+        this.user_log();
+       // this.tax();
         //this.calculadora();
         //this.users();
         //this.login();
@@ -87,7 +86,218 @@ public class Ventana extends JFrame{
         this.repaint();
     }
 
+
+    public void user_log(){
+
+        
+        JPanel contenedor = new JPanel();
+        contenedor.setLayout(new BorderLayout());
+        contenedor.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        this.add(contenedor, BorderLayout.CENTER);
+
+
+        JPanel datos_generales = new JPanel();
+        datos_generales.setBackground(Color.decode("#94e9b5"));
+        datos_generales.setLayout(new GridLayout(0, 2,10,10));
+        datos_generales.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.decode("#41e47f")),"Datos generales"),BorderFactory.createEmptyBorder(10,10,10,10)));
+        contenedor.add(datos_generales, BorderLayout.NORTH);
+
+        JLabel nombres = new JLabel("Nombres: ");
+        datos_generales.add(nombres);
+
+        JTextField name = new JTextField();
+        datos_generales.add(name);
+
+        JLabel apellidoP = new JLabel("Apellido paterno: ");
+        datos_generales.add(apellidoP);
+        
+        JTextField lname = new JTextField();
+        datos_generales.add(lname);
+
+
+        JLabel apellidoM = new JLabel("Apellido materno: ");
+        datos_generales.add(apellidoM);
+
+        JTextField lname2 = new JTextField();
+        datos_generales.add(lname2);
+
+        
+        JLabel date = new JLabel("Fecha de nacimiento: ");
+        datos_generales.add(date);
+
+        JTextField daTextField = new JTextField();
+        datos_generales.add(daTextField);
+
+        JLabel SEXO = new JLabel("Sexo: ");
+        datos_generales.add(SEXO);
+
+        JLabel space = new JLabel("");
+        datos_generales.add(space);
+
+
+        JRadioButton Male = new JRadioButton("Masculino");
+        Male.setOpaque(false);
+        datos_generales.add(Male);
+        JRadioButton Female = new JRadioButton("Femenino");
+        Female.setOpaque(false);
+        datos_generales.add(Female);
+
+        ButtonGroup segs = new ButtonGroup();
+
+        segs.add(Female);
+        segs.add(Male);
+
+        JLabel nacionalidad = new JLabel("Nacionalidad: ");
+        datos_generales.add(nacionalidad);
+
+        String[] Pais = {"Perú", "México", "Argentina", "chile","Brazil"};
+
+        JComboBox Pais_combo = new JComboBox(Pais);
+
+        datos_generales.add(Pais_combo);
+
+
+
+
+
+
+
+
+
+
+
+
+
+       JPanel datos_opcionales = new JPanel();
+       datos_opcionales.setBackground(Color.decode("#fa7f7f"));
+       datos_opcionales.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.decode("#eb5050")),"Datos opcionales"));
+       datos_opcionales.setLayout(new BorderLayout(10,10));
+       contenedor.add(datos_opcionales, BorderLayout.SOUTH);
+
+
+
+    
+        JPanel parteSuperior = new JPanel(new GridLayout(1,2,10,10));
+        parteSuperior.setOpaque(false);
+
+        JLabel pref = new JLabel("Preferencias:");
+        pref.setHorizontalAlignment(JLabel.RIGHT);
+
+        String[] preferencias = {"Cantar","Escuchar música","Leer","Deportes","Otros"};
+        JComboBox Pref_combo = new JComboBox(preferencias);
+
+        parteSuperior.add(pref);
+        parteSuperior.add(Pref_combo);
+
+        datos_opcionales.add(parteSuperior, BorderLayout.NORTH);
+
+        JTextArea descJTextArea = new JTextArea(4,20);
+        JScrollPane scroll = new JScrollPane(descJTextArea);
+
+        datos_opcionales.add(scroll, BorderLayout.CENTER);
+
+
+
+        /*Aqui inicia todo lo del contenedor 2 */
+
+
+
+
+        JPanel contenedor2 = new JPanel();
+        contenedor2.setLayout(new BorderLayout());
+        contenedor2.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        this.add(contenedor2, BorderLayout.EAST);
+
+        JPanel user = new JPanel();
+        user.setBackground(Color.decode("#fa7f7f"));
+        user.setLayout(new GridLayout(3,1,5,5));
+        user.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.decode("#eb5050")),"Perfil de usuario"));
+        
+        contenedor2.add(user, BorderLayout.NORTH);
+
+        
+        ImageIcon icon = new ImageIcon("src/imagen/robloxito2.png");
+
+        Image img0 = icon.getImage();
+        Image nueva0 = img0.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+        ImageIcon iconPequeno0 = new ImageIcon(nueva0);
+
+        JLabel perfil = new JLabel(iconPequeno0);
+        perfil.setHorizontalAlignment(JLabel.CENTER);
+        
+        
+
+        JCheckBox mostrar = new JCheckBox("Mostrar foto de perfil");
+        mostrar.setOpaque(false);
+        JCheckBox mostrar2 = new JCheckBox("Mostrar Fecha de nacimiento");
+        mostrar2.setOpaque(false);
+
+              
+        user.add(perfil);
+        user.add(mostrar);
+        user.add(mostrar2);
+
+        mostrar.setHorizontalAlignment(JCheckBox.CENTER);
+        mostrar2.setHorizontalAlignment(JCheckBox.CENTER);
+        
+        
+
+        JPanel botones = new JPanel();
+        botones.setBackground(Color.decode("#94e9b5"));
+        botones.setLayout(new GridLayout(3,1,5,5));
+        contenedor2.add(botones, BorderLayout.SOUTH);
+
+         //imagen guardar 
+        ImageIcon ico = new ImageIcon("src/imagen/guardar.png");
+
+        Image img = ico.getImage();
+        Image nueva = img.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        ImageIcon iconPequeno = new ImageIcon(nueva);
+        JButton calcular = new JButton("Nuevo", iconPequeno);
+
+        //imagen cancelar
+
+        ImageIcon icon2 = new ImageIcon("src/imagen/cancelar.png");
+
+        Image img2 = icon2.getImage();
+        Image nueva2 = img2.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        ImageIcon iconPequeno2 = new ImageIcon(nueva2);
+        JButton cancelar = new JButton("Cancelar", iconPequeno2);
+       
+        //imagen salir
+
+        ImageIcon icon3 = new ImageIcon("src/imagen/salir.png");
+
+        Image img3 = icon3.getImage();
+        Image nueva3 = img3.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        ImageIcon iconPequeno3 = new ImageIcon(nueva3);
+        JButton salir = new JButton("Salir", iconPequeno3);
+       
+
+
+        botones.add(salir);
+        botones.add(calcular);
+        botones.add(cancelar);
+
+        
+  
+
+
+
+
+
+    }
+
     public void tax(){
+        
+        
+        /*Cree la funcion tax desde cero, pero olvide hacer pull, luego un desastre
+        entonces no me salen todos los cambios que hice, aaah */
+
+
+
+
+
 
 
         JPanel contenedor = new JPanel();
