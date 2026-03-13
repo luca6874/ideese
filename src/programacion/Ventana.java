@@ -5,6 +5,11 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -26,6 +31,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 
 
@@ -77,11 +83,12 @@ public class Ventana extends JFrame{
         this.setIconImage(icon.getImage());
 
 
-        this.user_log();
+        //this.user_log();
        // this.tax();
         //this.calculadora();
         //this.users();
         //this.login();
+        this.pintar();
         this.setVisible(true);
         this.repaint();
     }
@@ -550,7 +557,7 @@ public class Ventana extends JFrame{
 
         }
 
-        public void registro(){
+    public void registro(){
             //el otro coso
         JPanel rg_container = new JPanel();
         rg_container.setBounds(500,50,400,470);
@@ -672,7 +679,7 @@ public class Ventana extends JFrame{
 
 
         }
-        public void users(){
+    public void users(){
             JPanel panel_users = new JPanel();
             panel_users.setSize(970,850);
             panel_users.setLocation(10,10);
@@ -823,7 +830,7 @@ public class Ventana extends JFrame{
             
         }
 
-        public void calculadora(){
+    public void calculadora(){
             JPanel panel_users = new JPanel();
             panel_users.setSize(500,700);
             panel_users.setLocation(250,50);
@@ -879,7 +886,82 @@ public class Ventana extends JFrame{
 
         }
 
+    public void pintar(){
 
+        JPanel pane = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+
+                Graphics2D g2d = (Graphics2D) g;
+
+                g2d.drawLine(0, 0, 1000, 700);
+
+                g2d.setColor(Color.orange);
+                g2d.setStroke(new BasicStroke(4));
+
+                g2d.drawOval(500, 100, 150, 100);
+
+
+                g2d.setStroke(new BasicStroke(5));
+                g2d.setColor(Color.MAGENTA);
+
+                g2d.drawPolygon(new int [] {300,100,300,120,30,66}, new int[] {100,200,250,90,7,30},6);
+                g2d.setColor(Color.red);
+
+                g2d.drawRect(300, 350, 100, 100);
+                g2d.setColor(Color.cyan);
+
+                g2d.drawRoundRect(500, 250, 100, 100, 10,10 );
+
+                g2d.setColor(Color.DARK_GRAY);
+
+                g2d.drawArc(400, 100, 100, 100, 90, 290);
+
+                g2d.setFont(new Font("Arial", Font.BOLD,22));
+                g2d.drawString("WALTuH", 600, 400);
+
+                g2d.fillOval(400, 400, 100, 100);
+                g2d.fillPolygon(new int [] {200,140,300,120,300,66,120,56,12,87}, new int[] {100,280,250,90,70,300,44,56,68,12},10);
+                g2d.fillRect(310, 360, 100, 100);
+                g2d.setColor(Color.yellow);
+                g2d.fillRoundRect(500, 250, 100, 100, 15,15);
+                g2d.fillArc(400, 100, 100, 100, 90, 290);
+
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(425, 130, 10, 10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+                BufferedImage image;
+
+                try {
+                    image = ImageIO.read(new File("src/imagen/robloxito2.png"));
+                    g2d.drawImage(image, 0, 300, null);
+
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        pane.setSize(1000,700);
+        pane.setLocation(0,0);
+        this.add(pane);
+        
+
+    }
 
 
 }
