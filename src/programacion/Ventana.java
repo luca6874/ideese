@@ -84,11 +84,13 @@ public class Ventana extends JFrame{
 
 
         //this.user_log();
-       // this.tax();
+        //this.tax();
         //this.calculadora();
         //this.users();
         //this.login();
-        this.pintar();
+        //this.pintar();
+        this.casa();
+
         this.setVisible(true);
         this.repaint();
     }
@@ -906,7 +908,7 @@ public class Ventana extends JFrame{
                 g2d.setStroke(new BasicStroke(5));
                 g2d.setColor(Color.MAGENTA);
 
-                g2d.drawPolygon(new int [] {300,100,300,120,30,66}, new int[] {100,200,250,90,7,30},6);
+                g2d.drawPolygon(new int [] {300,100,300}, new int[] {100,200,250},3);
                 g2d.setColor(Color.red);
 
                 g2d.drawRect(300, 350, 100, 100);
@@ -922,7 +924,7 @@ public class Ventana extends JFrame{
                 g2d.drawString("WALTuH", 600, 400);
 
                 g2d.fillOval(400, 400, 100, 100);
-                g2d.fillPolygon(new int [] {200,140,300,120,300,66,120,56,12,87}, new int[] {100,280,250,90,70,300,44,56,68,12},10);
+                g2d.fillPolygon(new int [] {300,100,300}, new int[] {100,200,250},3);
                 g2d.fillRect(310, 360, 100, 100);
                 g2d.setColor(Color.yellow);
                 g2d.fillRoundRect(500, 250, 100, 100, 15,15);
@@ -930,18 +932,6 @@ public class Ventana extends JFrame{
 
                 g2d.setColor(Color.DARK_GRAY);
                 g2d.fillOval(425, 130, 10, 10);
-
-
-
-
-
-
-
-
-
-
-
-
 
                 BufferedImage image;
 
@@ -963,5 +953,130 @@ public class Ventana extends JFrame{
 
     }
 
+ public void casa(){
 
+        JPanel pane = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+
+                Graphics2D g2d = (Graphics2D) g;
+
+                g2d.setColor(Color.decode("#6d4108"));
+                g2d.fillRect(0, 510, 1000, 50);
+
+                g2d.setColor(Color.decode("#e7f7a1"));
+                g2d.fillRect(0, 460, 1000, 50);
+
+                g2d.setColor(Color.decode("#0a4e0f"));
+                g2d.fillRect(0, 410, 1000, 50);
+
+                g2d.setColor(Color.decode("#052907"));
+                g2d.fillRect(0, 390, 1000, 20);
+
+                g2d.setColor(Color.decode("#f5f264"));
+                g2d.fillRect(0, 240,30, 150);
+
+                g2d.setColor(Color.decode("#a09e29"));
+                g2d.fillRect(30, 270,170, 25);
+
+                g2d.setColor(Color.decode("#a09e29"));
+                g2d.fillRect(30, 340,170, 25);
+
+                g2d.setColor(Color.decode("#f5f264"));
+                g2d.fillRect(50, 240,30, 150);
+
+                g2d.setColor(Color.decode("#f5f264"));
+                g2d.fillRect(100, 240,30, 150);
+
+                g2d.setColor(Color.decode("#f5f264"));
+                g2d.fillRect(150, 240,30, 150);
+
+                g2d.setColor(Color.decode("#a09e29"));
+                g2d.fillRect(520, 270,270, 25);
+
+                g2d.setColor(Color.decode("#a09e29"));
+                g2d.fillRect(520, 340,270, 25);
+                
+                g2d.setColor(Color.decode("#ebe831"));
+                g2d.fillRect(200, 110,330, 230);
+
+                g2d.setColor(Color.decode("#b40d0d"));
+                g2d.fillPolygon(new int [] {170,550,360}, new int[] {115,115,10},3);
+                g2d.setStroke(new BasicStroke(3));
+                g2d.setColor(Color.decode("#7a0707"));
+                g2d.drawPolygon(new int [] {170,550,360}, new int[] {115,115,10},3);
+
+                g2d.setColor(Color.decode("#474747"));
+                g2d.fillRect(450, 40,70, 20);
+
+                g2d.setColor(Color.decode("#3d3d3d"));
+                g2d.fillRect(440, 10,90, 30);
+
+                g2d.setColor(Color.decode("#4b4b4b"));
+                g2d.fillPolygon(new int [] {450,520,520}, new int[] {60,60,100},3);
+
+                g2d.setColor(Color.decode("#2b2a2a"));
+                g2d.fillPolygon(new int [] {450,520,520}, new int[] {40,40,80},3);
+
+                g2d.setColor(Color.decode("#f2f7f8"));
+                g2d.fillRect(410, 150,90, 90);
+
+                g2d.setColor(Color.decode("#805216"));
+                g2d.fillRect(230, 160,90, 180);
+
+                g2d.setStroke(new BasicStroke(5));
+                g2d.setColor(Color.decode("#58370c"));
+                g2d.drawRect(230, 160,90, 180);
+
+                g2d.setStroke(new BasicStroke(5));
+                g2d.setColor(Color.decode("#5c0c0c"));
+                g2d.drawRect(410, 150,90, 90);
+
+                
+                
+                g2d.setStroke(new BasicStroke(7));
+                g2d.drawLine(455, 240, 455, 150);
+
+                g2d.setStroke(new BasicStroke(4));
+                g2d.drawLine(410, 195, 500,195);
+
+                g2d.setColor(Color.decode("#474747"));
+                g2d.fillRect(400, 240,110, 20);
+
+                g2d.setColor(Color.decode("#f5f264"));
+                g2d.fillRect(550, 240,30, 150);
+
+              
+                g2d.setColor(Color.decode("#f5f264"));
+                g2d.fillRect(600, 240,30, 150);
+
+                g2d.setColor(Color.decode("#f5f264"));
+                g2d.fillRect(650, 240,30, 150);
+
+                g2d.setColor(Color.decode("#f5f264"));
+                g2d.fillRect(700, 240,30, 150);
+
+                g2d.setColor(Color.decode("#474747"));
+                g2d.fillRect(160, 340,410, 50);
+
+                g2d.setColor(Color.decode("#f5f264"));
+                g2d.fillRect(750, 240,30, 150);
+
+                g2d.setColor(Color.white);
+                g2d.fillArc(300, 250, 15, 15, 90, 360);
+
+                g2d.setFont(new Font("Times new Roman", Font.BOLD,25));
+                g2d.setColor(Color.decode("#e99eca"));
+                g2d.drawString("Eri", 250, 190);
+
+
+            }
+        };
+        pane.setSize(1000,700);
+        pane.setBackground(Color.decode("#0c98aa"));
+        pane.setLocation(0,0);
+        this.add(pane);
+        
+    }
 }
