@@ -974,32 +974,53 @@ public class Ventana extends JFrame{
                 g2d.setColor(Color.decode("#052907"));
                 g2d.fillRect(0, 390, 1000, 20);
 
-                g2d.setColor(Color.decode("#f5f264"));
-                g2d.fillRect(0, 240,30, 150);
 
-                g2d.setColor(Color.decode("#a09e29"));
-                g2d.fillRect(30, 270,170, 25);
 
-                g2d.setColor(Color.decode("#a09e29"));
-                g2d.fillRect(30, 340,170, 25);
 
-                g2d.setColor(Color.decode("#f5f264"));
-                g2d.fillRect(50, 240,30, 150);
-
-                g2d.setColor(Color.decode("#f5f264"));
-                g2d.fillRect(100, 240,30, 150);
-
-                g2d.setColor(Color.decode("#f5f264"));
-                g2d.fillRect(150, 240,30, 150);
-
-                g2d.setColor(Color.decode("#a09e29"));
-                g2d.fillRect(520, 270,270, 25);
-
-                g2d.setColor(Color.decode("#a09e29"));
-                g2d.fillRect(520, 340,270, 25);
                 
-                g2d.setColor(Color.decode("#ebe831"));
+
+                g2d.setColor(Color.decode("#a09e29"));
+                g2d.fillRect(30, 270,1000, 25);
+
+                g2d.setColor(Color.decode("#a09e29"));
+                g2d.fillRect(30, 340,1000, 25);
+
+
+                int cor = 0;
+                for (int i = 0; i <=15; i++) {
+                    g2d.setColor(Color.decode("#d8bc1e"));
+                    g2d.fillRect(cor, 240,30, 150);
+                    cor+=50;
+                }
+
+                
+                g2d.setColor(Color.decode("#f3f17d"));
                 g2d.fillRect(200, 110,330, 230);
+                
+                int cor2 = 130;
+                for (int i = 0; i <=6; i++) {
+                    g2d.setColor(Color.decode("#4b3212"));
+                    g2d.setStroke(new BasicStroke(4));
+                    g2d.drawLine(200, cor2, 530,cor2);
+                    cor2+=30;
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 g2d.setColor(Color.decode("#b40d0d"));
                 g2d.fillPolygon(new int [] {170,550,360}, new int[] {115,115,10},3);
@@ -1044,24 +1065,10 @@ public class Ventana extends JFrame{
                 g2d.setColor(Color.decode("#474747"));
                 g2d.fillRect(400, 240,110, 20);
 
-                g2d.setColor(Color.decode("#f5f264"));
-                g2d.fillRect(550, 240,30, 150);
-
-              
-                g2d.setColor(Color.decode("#f5f264"));
-                g2d.fillRect(600, 240,30, 150);
-
-                g2d.setColor(Color.decode("#f5f264"));
-                g2d.fillRect(650, 240,30, 150);
-
-                g2d.setColor(Color.decode("#f5f264"));
-                g2d.fillRect(700, 240,30, 150);
 
                 g2d.setColor(Color.decode("#474747"));
                 g2d.fillRect(160, 340,410, 50);
 
-                g2d.setColor(Color.decode("#f5f264"));
-                g2d.fillRect(750, 240,30, 150);
 
                 g2d.setColor(Color.white);
                 g2d.fillArc(300, 250, 15, 15, 90, 360);
@@ -1069,7 +1076,7 @@ public class Ventana extends JFrame{
                 g2d.setFont(new Font("Times new Roman", Font.BOLD,25));
                 g2d.setColor(Color.decode("#e99eca"));
                 g2d.drawString("Eri", 250, 190);
-
+                
 
             }
         };
