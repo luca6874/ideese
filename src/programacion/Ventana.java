@@ -23,6 +23,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -561,6 +562,11 @@ public class Ventana extends JFrame{
         
         login_container.add(acces_btn);
 
+        //credenciales de prueba
+        String usuario2 = "Alex";
+        String contraseña = "EriMiLoba";
+
+
          acces_btn.addActionListener(new ActionListener() {
 
 			@Override
@@ -574,6 +580,7 @@ public class Ventana extends JFrame{
 
                 int longitud = password.length();
 
+                //validaciones
 				if(email.equals("")) {
 					System.out.println("vacio");
 					
@@ -595,16 +602,31 @@ public class Ventana extends JFrame{
 					password_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
 
                  }else{
-					email_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
                     password_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
                  }
 				
-				
+				 //validaciones de credenciales
+            if(email.equals(usuario2) && password.equals(contraseña)){
+                JOptionPane.showMessageDialog(null, "Login correcto, bienvenido a bimbo", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                
+                email_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+                password_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+                
+                email_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+                password_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+            }
+
 			}
+
+            
 		}); 
 
+        
 
-       // login_container.setComponentZOrder(fondo_label, login_container.getComponentCount()-1);
+
 
         }
 
@@ -730,7 +752,9 @@ public class Ventana extends JFrame{
         acceso_etiqueta.setHorizontalAlignment(JLabel.CENTER);
         rg_container.add(acceso_etiqueta);
 
-               register_btn.addActionListener(new ActionListener() {
+
+          
+            register_btn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
