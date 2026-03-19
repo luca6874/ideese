@@ -33,6 +33,10 @@ import javax.swing.JTextField;
 import java.awt.GridLayout;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 
 public class Ventana extends JFrame{
@@ -41,12 +45,12 @@ public class Ventana extends JFrame{
 
         //Configuraciones basicas
 
-        this.setBounds(400,400,800,600);
+        this.setBounds(400,400,1000,600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(200,200));
         this.setMaximumSize(new Dimension(800,800));
-        this.setLayout(new BorderLayout());
+        this.setLayout(null);
         this.setTitle("Waltuh");
         this.getContentPane().setBackground(Color.decode("#ebbad8"));
 
@@ -87,9 +91,10 @@ public class Ventana extends JFrame{
         //this.tax();
         //this.calculadora();
         //this.users();
-        //this.login();
+        this.login();
+        this.registro();
         //this.pintar();
-        this.casa();
+        //this.casa();
 
         this.setVisible(true);
         this.repaint();
@@ -485,11 +490,11 @@ public class Ventana extends JFrame{
         login_container.setBorder(BorderFactory.createRaisedBevelBorder());
 
 
-        ImageIcon fondo = new ImageIcon("src/imagen/2164111.png");
+        /*ImageIcon fondo = new ImageIcon("src/imagen/2164111.png");
         JLabel fondo_label = new JLabel(fondo);
         fondo_label.setBounds(0,0,600,470);
 
-        login_container.add(fondo_label);
+        login_container.add(fondo_label);*/
 
 
 
@@ -534,6 +539,8 @@ public class Ventana extends JFrame{
         email_input.setLocation(20,100);
         login_container.add(email_input);
 
+       
+
 
         JPasswordField password_input = new JPasswordField();
         password_input.setSize(200,40);
@@ -554,8 +561,50 @@ public class Ventana extends JFrame{
         
         login_container.add(acces_btn);
 
+         acces_btn.addActionListener(new ActionListener() {
 
-        login_container.setComponentZOrder(fondo_label, login_container.getComponentCount()-1);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String email = email_input.getText();
+                char[] passwordChars = password_input.getPassword();
+                String password = new String(passwordChars);              
+                boolean tieneEspacio2 = password.contains(" ");  
+                boolean tieneEspacio = email.contains(" ");
+
+                int longitud = password.length();
+
+				if(email.equals("")) {
+					System.out.println("vacio");
+					
+					email_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+					
+				}else if(tieneEspacio){
+                    System.out.println("Tiene espacios en blanco");
+					
+					email_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+                    
+                }else if(tieneEspacio2){
+                    System.out.println("Contiene espacios la contraseña");
+					
+					password_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+                    
+                 }else if(longitud<=6){
+                    System.out.println("minimo 6 caracteres para contraseña");
+					
+					password_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+
+                 }else{
+					email_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+                    password_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+                 }
+				
+				
+			}
+		}); 
+
+
+       // login_container.setComponentZOrder(fondo_label, login_container.getComponentCount()-1);
 
         }
 
@@ -588,7 +637,8 @@ public class Ventana extends JFrame{
 
         JCheckBox dulce = new JCheckBox("Dulce");
         dulce.setBounds(50,260,100,40);
-        dulce.setOpaque(false);
+        dulce.setOpaque(true);
+        dulce.setBackground(null);
         rg_container.add(dulce);
 
 
@@ -607,7 +657,8 @@ public class Ventana extends JFrame{
 
         JRadioButton accept_terms = new JRadioButton("Acepto los terminos");
         accept_terms.setBounds(50,320,200,40);
-        accept_terms.setOpaque(false);
+        accept_terms.setOpaque(true);
+        accept_terms.setBackground(null);
         rg_container.add(accept_terms);
 
         JRadioButton reject_terms = new JRadioButton("Rechazo los terminos");
@@ -678,6 +729,30 @@ public class Ventana extends JFrame{
         acceso_etiqueta.setFont(new Font("Arial",Font.PLAIN,22));
         acceso_etiqueta.setHorizontalAlignment(JLabel.CENTER);
         rg_container.add(acceso_etiqueta);
+
+               register_btn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+                
+                boolean seleccion = dulce.isSelected() || salado.isSelected() || saludable.isSelected();
+    
+                if(!seleccion){
+                    dulce.setBorder(BorderFactory.createLineBorder(Color.red,3));
+                    dulce.setBackground(Color.red);
+                    System.out.println("Debe seleccionar al menos una preferencia");
+
+
+                }
+                
+                if(!accept_terms.isSelected()){
+                    accept_terms.setBackground(Color.red);
+                    System.out.println("Debes aceptar los términos para continuar");
+                }
+            }
+        
+        });
 
 
         }
@@ -974,17 +1049,11 @@ public class Ventana extends JFrame{
                 g2d.setColor(Color.decode("#052907"));
                 g2d.fillRect(0, 390, 1000, 20);
 
-
-
-
-                
-
                 g2d.setColor(Color.decode("#a09e29"));
                 g2d.fillRect(30, 270,1000, 25);
 
                 g2d.setColor(Color.decode("#a09e29"));
                 g2d.fillRect(30, 340,1000, 25);
-
 
                 int cor = 0;
                 for (int i = 0; i <=15; i++) {
@@ -993,7 +1062,6 @@ public class Ventana extends JFrame{
                     cor+=50;
                 }
 
-                
                 g2d.setColor(Color.decode("#f3f17d"));
                 g2d.fillRect(200, 110,330, 230);
                 
@@ -1004,23 +1072,6 @@ public class Ventana extends JFrame{
                     g2d.drawLine(200, cor2, 530,cor2);
                     cor2+=30;
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 g2d.setColor(Color.decode("#b40d0d"));
                 g2d.fillPolygon(new int [] {170,550,360}, new int[] {115,115,10},3);
@@ -1054,8 +1105,6 @@ public class Ventana extends JFrame{
                 g2d.setColor(Color.decode("#5c0c0c"));
                 g2d.drawRect(410, 150,90, 90);
 
-                
-                
                 g2d.setStroke(new BasicStroke(7));
                 g2d.drawLine(455, 240, 455, 150);
 
@@ -1065,10 +1114,8 @@ public class Ventana extends JFrame{
                 g2d.setColor(Color.decode("#474747"));
                 g2d.fillRect(400, 240,110, 20);
 
-
                 g2d.setColor(Color.decode("#474747"));
                 g2d.fillRect(160, 340,410, 50);
-
 
                 g2d.setColor(Color.white);
                 g2d.fillArc(300, 250, 15, 15, 90, 360);
@@ -1077,11 +1124,10 @@ public class Ventana extends JFrame{
                 g2d.setColor(Color.decode("#e99eca"));
                 g2d.drawString("Eri", 250, 190);
                 
-
             }
         };
         pane.setSize(1000,700);
-        pane.setBackground(Color.decode("#0c98aa"));
+        pane.setBackground(Color.decode("#0cd4ee"));
         pane.setLocation(0,0);
         this.add(pane);
         
