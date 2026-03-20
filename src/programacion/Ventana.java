@@ -46,7 +46,7 @@ public class Ventana extends JFrame{
 
         //Configuraciones basicas
 
-        this.setBounds(400,400,1000,600);
+        this.setBounds(400,400,800,600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(200,200));
@@ -88,8 +88,9 @@ public class Ventana extends JFrame{
         this.setIconImage(icon.getImage());
 
 
-       //this.registro();
-       this.router("login");        
+        //this.router("login");        
+            
+        this.mario();
 
         this.setVisible(true);
         this.repaint();
@@ -427,7 +428,218 @@ public class Ventana extends JFrame{
 
 
         }
+
+        public void mario(){
+
+        JPanel pane = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+
+                Graphics2D g2d = (Graphics2D) g;
+
+                g2d.setColor(Color.decode("#8f5b18"));
+                g2d.fillRect(0, 460, 1000, 80);
+
+                /*Bloques */
+
+                g2d.setStroke(new BasicStroke(3));
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(150, 300, 120, 150);
+
+                g2d.setColor(Color.decode("#7b9feb")); //bloque azul
+                g2d.fillRect(152, 302, 117, 155);
+
+                g2d.setStroke(new BasicStroke(3));
+                g2d.setColor(Color.decode("#467cf3"));
+                g2d.drawLine(266, 304, 266, 444);
+
+
+
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(100, 330, 120, 120);
+
+                g2d.setColor(Color.decode("#db8f71"));
+                g2d.fillRect(102, 332, 117, 112); //bloque naranja/salmon ns
+
+                g2d.setStroke(new BasicStroke(3));
+                g2d.setColor(Color.decode("#cc6f4a"));
+                g2d.drawLine(217, 335, 217, 444);
+
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(105, 335, 10, 10);
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(200, 335, 10, 10);
+
+                
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(105, 425, 10, 10);
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(200, 425, 10, 10);
+
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(105, 335, 10, 10);
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(200, 335, 10, 10);
+
+                g2d.setStroke(new BasicStroke(2));
+
+                //inicia bordes de ovalos en bloques
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawOval(105, 425, 10, 10);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawOval(200, 425, 10, 10);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawOval(105, 335, 10, 10);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawOval(200, 335, 10, 10);
+                //finaliza aqui
+
+
+                g2d.setStroke(new BasicStroke(3));
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(658, 330, 130, 120);
+
+                g2d.setColor(Color.decode("#2f922f"));
+                g2d.fillRect(660, 332, 130, 112); //bloque verde
+                g2d.setStroke(new BasicStroke(3));
+                g2d.setColor(Color.decode("#0f2e0e"));
+                g2d.drawLine(662, 438, 782, 438);
+
+
+                
+                g2d.setStroke(new BasicStroke(13));
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawLine(225, 360, 225, 444);
+
+                g2d.setStroke(new BasicStroke(13));
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawLine(275, 330, 275, 444);
+
+
+
+
+
+
+
+
+
+                /*tuberia*/
+
+                g2d.setColor(Color.decode("#116827"));
+                g2d.fillRect(395, 350, 73, 100);
+
+
+                g2d.setColor(Color.decode("#116827"));
+                g2d.fillRect(387, 320, 88, 30);
+
+                g2d.setStroke(new BasicStroke(2));
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(395, 350, 73, 100);
+
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(387, 320, 88, 30);  
+
+                /*Bloques de interrogacion */
+
+                g2d.setStroke(new BasicStroke(2));
+
+                g2d.setColor(Color.decode("#c77b24"));
+                g2d.fillRect(100, 150, 30, 30);
+              
+
+
+
+                g2d.setColor(Color.decode("#c77b24"));
+                g2d.fillRect(130, 150, 30, 30);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(100, 150, 30, 30);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(130, 150, 30, 30);
+
+
+
+
+
+                g2d.setColor(Color.decode("#c77b24"));
+                g2d.fillRect(30, 250, 30, 30);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(30, 250, 30, 30);
+
+                
+                g2d.setColor(Color.decode("#c77b24"));
+                g2d.fillRect(700, 250, 30, 30);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(700, 250, 30, 30);
+
+
+              
+
+                /*Arbusto */
+
+                g2d.setColor(Color.decode("#116827"));
+                g2d.fillArc(10, 390, 80, 100, 30,100);
+                g2d.fillArc(10, 390, 80, 100, 0, 60);
+                g2d.fillArc(10, 390, 80, 100, 120, 60);
+
+
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawArc(10, 390, 80, 100, 0, 60);
+                g2d.drawArc(10, 390, 80, 100, 120, 60);
+                g2d.drawArc(10, 390, 70, 100, 30,100);
+
+
+
+
+                /*El suelo */
+                g2d.setColor(Color.decode("#ddb177"));
+                g2d.fillRect(0, 440, 1000, 20);
+
+
+                int cor = 460;
+
+                for(int i = 0; i<=3; i++){
+                    g2d.setStroke(new BasicStroke(3));
+                    g2d.setColor(Color.decode("#3d2404"));
+                    g2d.drawLine(0, cor, 1000, cor);
+
+                    cor+=30;
+
+                }
+
+                int cor2 = 0;
+
+                 for(int i = 0; i<=30; i++){
+                    g2d.setStroke(new BasicStroke(3));
+                    g2d.setColor(Color.decode("#3d2404"));
+                    g2d.drawLine(cor2, 460, cor2, 540);
+
+                    cor2+=30;
+
+                 }
+                
+
+
+
+
+
+
+
+                
+
+
+
+                        }
+        };
+        pane.setSize(1000,700);
+        pane.setBackground(Color.decode("#a3ebf5"));
+        pane.setLocation(0,0);
+        this.add(pane);
+
+
+    }
     
+
 
 
 
