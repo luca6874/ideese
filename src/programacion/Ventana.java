@@ -475,10 +475,13 @@ public class Ventana extends JFrame{
                 g2d.setColor(Color.DARK_GRAY);
                 g2d.fillOval(105, 425, 10, 10);
                 g2d.setColor(Color.DARK_GRAY);
-                g2d.fillOval(200, 425, 10, 10);
-
-                g2d.setColor(Color.DARK_GRAY);
                 g2d.fillOval(105, 335, 10, 10);
+
+
+
+              
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(200, 425, 10, 10);
                 g2d.setColor(Color.DARK_GRAY);
                 g2d.fillOval(200, 335, 10, 10);
 
@@ -493,9 +496,9 @@ public class Ventana extends JFrame{
                 g2d.drawOval(105, 335, 10, 10);
                 g2d.setColor(Color.decode("#000000"));
                 g2d.drawOval(200, 335, 10, 10);
+
+
                 //finaliza aqui
-
-
                 g2d.setStroke(new BasicStroke(3));
                 g2d.setColor(Color.decode("#000000"));
                 g2d.drawRect(658, 330, 130, 120);
@@ -505,9 +508,19 @@ public class Ventana extends JFrame{
                 g2d.setStroke(new BasicStroke(3));
                 g2d.setColor(Color.decode("#0f2e0e"));
                 g2d.drawLine(662, 438, 782, 438);
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(662, 425, 10, 10);
+                g2d.setColor(Color.DARK_GRAY);
+                g2d.fillOval(662, 335, 10, 10);
+
+                g2d.setStroke(new BasicStroke(2));
 
 
-                
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawOval(662, 425, 10, 10);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawOval(662, 335, 10, 10);
+
                 g2d.setStroke(new BasicStroke(13));
                 g2d.setColor(Color.decode("#000000"));
                 g2d.drawLine(225, 360, 225, 444);
@@ -519,24 +532,16 @@ public class Ventana extends JFrame{
 
 
 
-
-
-
-
-
                 /*tuberia*/
 
                 g2d.setColor(Color.decode("#116827"));
                 g2d.fillRect(395, 350, 73, 100);
-
-
                 g2d.setColor(Color.decode("#116827"));
                 g2d.fillRect(387, 320, 88, 30);
 
                 g2d.setStroke(new BasicStroke(2));
                 g2d.setColor(Color.decode("#000000"));
                 g2d.drawRect(395, 350, 73, 100);
-
                 g2d.setColor(Color.decode("#000000"));
                 g2d.drawRect(387, 320, 88, 30);  
 
@@ -544,22 +549,40 @@ public class Ventana extends JFrame{
 
                 g2d.setStroke(new BasicStroke(2));
 
+                //bloque1
                 g2d.setColor(Color.decode("#c77b24"));
                 g2d.fillRect(100, 150, 30, 30);
-              
+                g2d.setColor(Color.decode("#000000"));
+                g2d.drawRect(100, 150, 30, 30);
 
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(101, 152, 7, 7);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(101, 170, 7, 7);
+                
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(120, 152, 7, 7);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(120, 170, 7, 7);
 
+                //bloque2
 
                 g2d.setColor(Color.decode("#c77b24"));
                 g2d.fillRect(130, 150, 30, 30);
                 g2d.setColor(Color.decode("#000000"));
-                g2d.drawRect(100, 150, 30, 30);
-                g2d.setColor(Color.decode("#000000"));
                 g2d.drawRect(130, 150, 30, 30);
 
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(131, 152, 7, 7);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(131, 170, 7, 7);
+                
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(150, 152, 7, 7);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(150, 170, 7, 7);
 
-
-
+                //bloque3
 
                 g2d.setColor(Color.decode("#c77b24"));
                 g2d.fillRect(30, 250, 30, 30);
@@ -567,13 +590,32 @@ public class Ventana extends JFrame{
                 g2d.drawRect(30, 250, 30, 30);
 
                 
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(31, 252, 7, 7);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(31, 270, 7, 7);
+                
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(50, 252, 7, 7);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(50, 270, 7, 7);
+                //bloque4
                 g2d.setColor(Color.decode("#c77b24"));
                 g2d.fillRect(700, 250, 30, 30);
                 g2d.setColor(Color.decode("#000000"));
                 g2d.drawRect(700, 250, 30, 30);
+                
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(701, 252, 7, 7);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(701, 270, 7, 7);
+                
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(720, 252, 7, 7);
+                g2d.setColor(Color.decode("#000000"));
+                g2d.fillOval(720, 270, 7, 7);
 
-
-              
+                
 
                 /*Arbusto */
 
@@ -586,7 +628,7 @@ public class Ventana extends JFrame{
                 g2d.setColor(Color.decode("#000000"));
                 g2d.drawArc(10, 390, 80, 100, 0, 60);
                 g2d.drawArc(10, 390, 80, 100, 120, 60);
-                g2d.drawArc(10, 390, 70, 100, 30,100);
+                g2d.drawArc(10, 390, 80, 100, 30,100);
 
 
 
