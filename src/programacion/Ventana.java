@@ -54,9 +54,21 @@ public class Ventana extends JFrame{
         this.setLayout(null);
         this.setTitle("Waltuh");
         this.getContentPane().setBackground(Color.decode("#ebbad8"));
+        ImageIcon icon = new ImageIcon("src/imagen/2164111.png");
+        this.setIconImage(icon.getImage());
 
 
-        JMenuBar barra = new JMenuBar();
+        this.menu();
+        this.router("login");        
+            
+        //this.mario();
+
+        this.setVisible(true);
+        this.repaint();
+    }
+
+    public void menu(){
+          JMenuBar barra = new JMenuBar();
         this.setJMenuBar(barra);
 
         JMenu menu1 = new JMenu("Archivo");
@@ -92,6 +104,20 @@ public class Ventana extends JFrame{
         JMenuItem opt_re = new JMenuItem("Registrarse");
         menu3.add(opt_re);
 
+        JMenu menu4 = new JMenu("Ayuda");
+        barra.add(menu4);
+
+        JMenuItem opt_help= new JMenuItem("¿Cómo crear un usuario?");
+        menu4.add(opt_help);
+
+        JMenuItem opt_help2 = new JMenuItem("¿Cómo acceder al sistema?");
+        menu4.add(opt_help2);
+
+        JMenuItem opt_help3 = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+        menu4.add(opt_help3);
+
+
+
         opt1_acces.addActionListener(e ->{
             this.router("login");
 
@@ -101,25 +127,6 @@ public class Ventana extends JFrame{
             this.router("registro");
 
         });
-
-
-
-
-
-
-
-
-       
-        ImageIcon icon = new ImageIcon("src/imagen/2164111.png");
-        this.setIconImage(icon.getImage());
-
-
-        this.router("login");        
-            
-        //this.mario();
-
-        this.setVisible(true);
-        this.repaint();
     }
 
 
