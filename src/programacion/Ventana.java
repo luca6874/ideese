@@ -46,7 +46,7 @@ public class Ventana extends JFrame{
 
         //Configuraciones basicas
 
-        this.setBounds(400,400,800,600);
+        this.setBounds(400,400,1000,600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(200,200));
@@ -83,14 +83,40 @@ public class Ventana extends JFrame{
         JMenuItem opt5 = new JMenuItem("Guardar como");
         menu2.add(opt5);
 
+        JMenu menu3 = new JMenu("Cuenta");
+        barra.add(menu3);
+
+        JMenuItem opt1_acces= new JMenuItem("Iniciar sesión");
+        menu3.add(opt1_acces);
+
+        JMenuItem opt_re = new JMenuItem("Registrarse");
+        menu3.add(opt_re);
+
+        opt1_acces.addActionListener(e ->{
+            this.router("login");
+
+        });
+
+        opt_re.addActionListener(e ->{
+            this.router("registro");
+
+        });
+
+
+
+
+
+
+
+
        
         ImageIcon icon = new ImageIcon("src/imagen/2164111.png");
         this.setIconImage(icon.getImage());
 
 
-        //this.router("login");        
+        this.router("login");        
             
-        this.mario();
+        //this.mario();
 
         this.setVisible(true);
         this.repaint();
