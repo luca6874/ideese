@@ -68,7 +68,8 @@ public class Ventana extends JFrame{
     }
 
     public void menu(){
-          JMenuBar barra = new JMenuBar();
+        
+        JMenuBar barra = new JMenuBar();
         this.setJMenuBar(barra);
 
         JMenu menu1 = new JMenu("Archivo");
@@ -76,10 +77,8 @@ public class Ventana extends JFrame{
 
         JMenuItem opt1 = new JMenuItem("Abrir");
         menu1.add(opt1);
-
         JMenuItem opt2 = new JMenuItem("Cerrar");
         menu1.add(opt2);
-
         JMenuItem opt3 = new JMenuItem("Más");
         menu1.add(opt3);
 
@@ -104,37 +103,72 @@ public class Ventana extends JFrame{
         JMenuItem opt_re = new JMenuItem("Registrarse");
         menu3.add(opt_re);
 
+        JMenuItem opt_recuperacion = new JMenuItem("Recuperacion");
+        menu3.add(opt_recuperacion);
+
         JMenu menu4 = new JMenu("Ayuda");
         barra.add(menu4);
 
-        JMenuItem opt_help= new JMenuItem("recuperar");
+        JMenuItem opt_help= new JMenuItem("recuperar contraseña");
         menu4.add(opt_help);
 
         JMenuItem opt_help2 = new JMenuItem("¿Cómo acceder al sistema?");
         menu4.add(opt_help2);
 
-        JMenuItem opt_help3 = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+        JMenuItem opt_help3 = new JMenuItem("¿como crear usuario?");
         menu4.add(opt_help3);
+
+        
+        JMenu menu5 = new JMenu("Usuarios");
+        barra.add(menu5);
+        JMenuItem opt_alta= new JMenuItem("Alta usuario");
+        menu5.add(opt_alta);
+
+        JMenuItem opt_baja = new JMenuItem("Baja usuario");
+        menu5.add(opt_baja);
+
+        JMenuItem opt_consult = new JMenuItem("Consultar usuario");
+        menu5.add(opt_consult);
 
 
 
         opt1_acces.addActionListener(e ->{
             this.router("login");
-
         });
-
         opt_re.addActionListener(e ->{
             this.router("registro");
-
+        });
+         opt_recuperacion.addActionListener(e ->{
+            this.router("recuperarUsuario");
         });
 
-        opt_re.addActionListener(e ->{
+        opt_help.addActionListener(e ->{
             this.router("recuperarContraseña");
-
         });
+
+        opt_help2.addActionListener(e ->{
+            this.router("AccederSistema");
+        });
+        opt_help3.addActionListener(e ->{
+            this.router("CrearUsuario");
+        });
+
+        opt_alta.addActionListener(e ->{
+            this.router("AltaUsuario");
+        });
+        opt_baja.addActionListener(e ->{
+            this.router("BajaUsuario");
+        });
+        opt_consult.addActionListener(e ->{
+            this.router("ConsultarUsuario");
+        });
+
+
+        
     }
 
-
+    public void ayuda(){}
+     
 
     public void login(){
 
@@ -305,7 +339,8 @@ public class Ventana extends JFrame{
 
         }
 
-public void recuperarContraseña(){
+
+    public void recuperarContraseña(){
 
 
         //aqui es el login, donde van los botones y todo eso
@@ -317,14 +352,14 @@ public void recuperarContraseña(){
         login_container.setLayout(null);
         this.add(login_container);
 
-        login_container.setBorder(BorderFactory.createRaisedBevelBorder());
+        /*login_container.setBorder(BorderFactory.createRaisedBevelBorder());
 
 
         /*ImageIcon fondo = new ImageIcon("src/imagen/2164111.png");
         JLabel fondo_label = new JLabel(fondo);
         fondo_label.setBounds(0,0,600,470);
 
-        login_container.add(fondo_label);*/
+        login_container.add(fondo_label);
 
 
 
@@ -466,13 +501,89 @@ public void recuperarContraseña(){
 			}
 
             
-		}); 
+		}); */
 
         
 
 
 
         }
+
+    public void AccederSistema(){
+
+
+        //aqui es el login, donde van los botones y todo eso
+
+
+        JPanel login_container = new JPanel();
+        login_container.setSize(400,470);
+        login_container.setLocation(50,50);
+        login_container.setLayout(null);
+        login_container.setBackground(Color.BLACK);
+        this.add(login_container);
+
+        /*login_container.setBorder(BorderFactory.createRaisedBevelBorder());
+            
+		}); */
+
+        }
+
+    public void CrearUsuario(){
+
+        JPanel login_container = new JPanel();
+        login_container.setSize(400,470);
+        login_container.setLocation(50,50);
+        login_container.setLayout(null);
+        login_container.setBackground(Color.cyan);
+        this.add(login_container);
+
+        }
+
+
+ public void AltaUsuario(){
+
+        JPanel login_container = new JPanel();
+        login_container.setSize(400,470);
+        login_container.setLocation(50,50);
+        login_container.setLayout(null);
+        login_container.setBackground(Color.BLUE);
+        this.add(login_container);
+
+        }
+
+ public void BajaUsuario(){
+
+        JPanel login_container = new JPanel();
+        login_container.setSize(400,470);
+        login_container.setLocation(50,50);
+        login_container.setLayout(null);
+        login_container.setBackground(Color.DARK_GRAY);
+        this.add(login_container);
+
+        }
+
+ public void ConsultarUsuario(){
+
+        JPanel login_container = new JPanel();
+        login_container.setSize(400,470);
+        login_container.setLocation(50,50);
+        login_container.setLayout(null);
+        login_container.setBackground(Color.yellow);
+        this.add(login_container);
+
+        }
+
+public void recuperarUsuario(){
+
+        JPanel login_container = new JPanel();
+        login_container.setSize(400,470);
+        login_container.setLocation(50,50);
+        login_container.setLayout(null);
+        login_container.setBackground(Color.red);
+        this.add(login_container);
+
+        }
+
 
 
 
@@ -892,10 +1003,6 @@ public void recuperarContraseña(){
     }
     
 
-
-
-
-
     public void router (String target){
         this.getContentPane().removeAll();;
 
@@ -903,8 +1010,21 @@ public void recuperarContraseña(){
             this.login();
         if(target.equals("registro"))
             this.registro();
-        if(target.equals("recuperar"))
+         if(target.equals("recuperarUsuario"))
+            this.recuperarUsuario();
+        if(target.equals("recuperarContraseña"))
             this.recuperarContraseña();
+        if(target.equals("AccederSistema"))
+            this.AccederSistema();
+        if(target.equals("CrearUsuario"))
+            this.CrearUsuario();
+
+        if(target.equals("AltaUsuario"))
+            this.AltaUsuario();
+        if(target.equals("BajaUsuario"))
+            this.BajaUsuario();
+        if(target.equals("ConsultarUsuario"))
+            this.ConsultarUsuario();
 
 
         this.repaint();
