@@ -46,20 +46,21 @@ public class Ventana extends JFrame{
 
         //Configuraciones basicas
 
-        this.setBounds(400,400,1000,600);
+        this.setBounds(400,400,800,600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(200,200));
         this.setMaximumSize(new Dimension(800,800));
         this.setLayout(null);
         this.setTitle("Waltuh");
-        this.getContentPane().setBackground(Color.decode("#ebbad8"));
+        this.getContentPane().setBackground(Color.decode("#ffffff"));
         ImageIcon icon = new ImageIcon("src/imagen/2164111.png");
         this.setIconImage(icon.getImage());
 
 
         this.menu();
-        this.router("login");        
+        //this.router("login");
+        this.examen();        
             
         //this.mario();
 
@@ -168,6 +169,201 @@ public class Ventana extends JFrame{
     }
 
     public void ayuda(){}
+
+    public void examen(){
+
+
+        JPanel table_container = new JPanel();
+        table_container.setSize(600,470);
+        table_container.setLocation(200,40);
+        table_container.setLayout(null);
+        table_container.setBackground(Color.decode("#d4d2d2"));
+        table_container.setBorder(BorderFactory.createLineBorder(Color.decode("#b9b9b9")));
+        this.add(table_container);
+
+        
+        JPanel frame_container2 = new JPanel();
+        frame_container2.setPreferredSize(new Dimension(200, 800));
+        frame_container2.setLayout(null);
+        frame_container2.setBackground(Color.decode("#ece9e9"));
+        frame_container2.setBorder(BorderFactory.createLineBorder(Color.decode("#b9b9b9")));
+
+
+        JScrollPane scroll = new JScrollPane(frame_container2);
+        scroll.setBounds(0,40,190,470);
+
+        this.add(scroll);
+
+       JButton[] botones = new JButton[10];
+
+       int cor_Y = 50;
+       for(int i = 0; i<10; i++){
+            botones[i] = new JButton("opcion->"+ (i+1));
+            botones[i].setBounds(10,cor_Y,150,20);
+
+            frame_container2.add(botones[i]);
+
+            cor_Y+=40;
+
+       }
+
+
+
+
+
+
+        JPanel barra = new JPanel();
+        barra.setSize(800,30);
+        barra.setLocation(0,0);
+        barra.setLayout(null);
+        barra.setBackground(Color.decode("#d4d2d2"));
+        barra.setBorder(BorderFactory.createLineBorder(Color.decode("#b9b9b9")));
+        this.add(barra);
+
+        
+        JLabel arriba_carpetas = new JLabel("wazuh");
+        arriba_carpetas.setSize(100,20);
+        arriba_carpetas.setOpaque(true);
+        arriba_carpetas.setLocation(0,0);
+        arriba_carpetas.setLayout(null);
+        arriba_carpetas.setBorder(BorderFactory.createEmptyBorder(10,20,10,20));
+        barra.add(arriba_carpetas);
+
+        JLabel arriba_carpetas2 = new JLabel("waltuh");
+        arriba_carpetas2.setSize(100,20);
+        arriba_carpetas2.setOpaque(true);
+        arriba_carpetas2.setLocation(105,0);
+        arriba_carpetas2.setLayout(null);
+        arriba_carpetas2.setBorder(BorderFactory.createEmptyBorder(10,20,10,20));
+        barra.add(arriba_carpetas2);
+        
+
+        //inician datos de la tabla
+        String[] table_head ={"No","Nombre","edad","cantidad","Dinero","Status"};
+        Object[][]table_body = {{"1","Carlos","10","11","12","activo"},{"2","Maria", "33","34","35","activo"},{"3","Jose","10","117","124","activo"},{"4","Darnell", "323","341","345","baja"},{"5","Iran","150","161","612","activo"},{"6","Ruiz", "733","374","356","activo"},{"7","Medellin","150","114","132","activo"},{"8","Leonardo", "3","4","3","activo"},{"9","Mata","110","111","112","activo"}};
+
+        JTable tabla = new JTable(table_body, table_head);
+
+        JScrollPane final_table = new JScrollPane(tabla);
+        final_table.setSize(500,160);
+        final_table.setLocation(40,25);
+
+        table_container.add(final_table);
+        //termina datos de la tabla
+
+        JTextArea descripcion = new JTextArea("Descripcion: ");
+        descripcion.setBounds(40,310,500,140);
+        descripcion.setOpaque(true);
+        descripcion.setBorder(BorderFactory.createLineBorder(Color.decode("#7a7979")));
+        table_container.add(descripcion);
+
+        JLabel opt1 = new JLabel("opcion 1");
+        opt1.setSize(100,20);
+        opt1.setLocation(40,200);
+        opt1.setBorder(BorderFactory.createLineBorder(Color.decode("#b9b9b9")));
+        opt1.setLayout(null);
+        table_container.add(opt1);
+
+        JLabel opt2 = new JLabel("opcion 2");
+        opt2.setSize(100,20);
+        opt2.setLocation(150,200);
+        opt2.setBorder(BorderFactory.createLineBorder(Color.decode("#b9b9b9")));
+        opt2.setLayout(null);
+        table_container.add(opt2);
+
+        JLabel opt3 = new JLabel("opcion 3");
+        opt3.setSize(100,20);
+        opt3.setLocation(260,200);
+        opt3.setBorder(BorderFactory.createLineBorder(Color.decode("#b9b9b9")));
+        opt3.setLayout(null);
+        table_container.add(opt3);
+
+
+       
+        JLabel txt_lb = new JLabel("texto 1:");
+        txt_lb.setSize(100,20);
+        txt_lb.setLocation(40,225);
+        txt_lb.setOpaque(false);
+        table_container.add(txt_lb);
+        JTextField txt_1 = new JTextField();
+        txt_1.setSize(90,20);
+        txt_1.setLocation(100,225);
+        txt_1.setBorder(BorderFactory.createLineBorder(Color.decode("#b9b9b9")));
+        txt_1.setLayout(null);
+        table_container.add(txt_1);
+
+
+        JLabel txt_lb2 = new JLabel("texto 2:");
+        txt_lb2.setSize(100,20);
+        txt_lb2.setLocation(200,225);
+        txt_lb2.setOpaque(false);
+        table_container.add(txt_lb2);
+        JTextField txt_2 = new JTextField();
+        txt_2.setSize(100,20);
+        txt_2.setLocation(260,225);
+        txt_2.setBorder(BorderFactory.createLineBorder(Color.decode("#b9b9b9")));
+        txt_2.setLayout(null);
+        table_container.add(txt_2);
+
+        
+        JLabel txt_lb3 = new JLabel("texto 3:");
+        txt_lb3.setSize(100,20);
+        txt_lb3.setLocation(380,225);
+        txt_lb3.setOpaque(false);
+        table_container.add(txt_lb3);
+        JTextField txt_3 = new JTextField();
+        txt_3.setSize(100,20);
+        txt_3.setLocation(440,225);
+        txt_3.setBorder(BorderFactory.createLineBorder(Color.decode("#b9b9b9")));
+        txt_3.setLayout(null);
+        table_container.add(txt_3);
+
+        JLabel txt_big = new JLabel("big_text:");
+        txt_big.setSize(100,20);
+        txt_big.setLocation(80,250);
+        txt_big.setOpaque(false);
+        txt_big.setLayout(null);
+        table_container.add(txt_big);
+
+        JTextField bg_txt = new JTextField();
+        bg_txt.setSize(400,20);
+        bg_txt.setLocation(140,250);
+        bg_txt.setLayout(null);
+        table_container.add(bg_txt);
+
+        
+        JLabel txt_big2 = new JLabel("big_text2:");
+        txt_big2.setSize(100,20);
+        txt_big2.setLocation(40,280);
+        txt_big2.setOpaque(false);
+        table_container.add(txt_big2);
+        JTextField bg_txt2 = new JTextField();
+        bg_txt2.setSize(150,20);
+        bg_txt2.setLocation(110,280);
+        bg_txt2.setLayout(null);
+        table_container.add(bg_txt2);
+
+        JLabel txt_big3 = new JLabel("big_text3:");
+        txt_big3.setSize(100,20);
+        txt_big3.setLocation(320,280);
+        txt_big3.setOpaque(false);
+        table_container.add(txt_big3);
+        JTextField bg_txt3 = new JTextField();
+        bg_txt3.setSize(150,20);
+        bg_txt3.setLocation(390,280);
+        bg_txt3.setLayout(null);
+        table_container.add(bg_txt3);
+
+
+        
+
+
+
+
+
+
+
+    }
      
 
     public void login(){
