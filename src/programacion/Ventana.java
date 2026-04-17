@@ -52,17 +52,16 @@ public class Ventana extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(200,200));
         this.setMaximumSize(new Dimension(800,800));
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
         this.setTitle("Waltuh");
         this.getContentPane().setBackground(Color.decode("#ffffff"));
         ImageIcon icon = new ImageIcon(getClass().getResource("/imagen/6.png"));
         this.setIconImage(icon.getImage());
        
-        this.menu();
+        //this.menu();
         //this.router("login");
-        this.examen();        
+        //this.examen();  
             
-        //this.mario();
 
         this.setVisible(true);
         this.repaint();
@@ -169,6 +168,10 @@ public class Ventana extends JFrame{
     }
 
     public void ayuda(){}
+
+    
+
+
 
     public void examen(){
 

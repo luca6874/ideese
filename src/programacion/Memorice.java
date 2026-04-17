@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Random;
 import java.awt.event.ActionEvent;
 
+
 public class Memorice {
 
 	private JFrame frame;
