@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -54,10 +55,9 @@ public class Ventana extends JFrame{
         this.setLayout(null);
         this.setTitle("Waltuh");
         this.getContentPane().setBackground(Color.decode("#ffffff"));
-        ImageIcon icon = new ImageIcon("src/imagen/2164111.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagen/6.png"));
         this.setIconImage(icon.getImage());
-
-
+       
         this.menu();
         //this.router("login");
         this.examen();        
