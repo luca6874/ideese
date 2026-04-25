@@ -1,9 +1,15 @@
 package programacion;
 
+import Controllers.AuthController;
+
 public class Main {
     public static void main(String[] args) {
 
-        Ventana miventana = new Ventana();
+        AuthController controller = new AuthController();
+
+        controller.login();
+
+
     }
     
 }
