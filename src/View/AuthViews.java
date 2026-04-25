@@ -150,10 +150,7 @@ public class AuthViews {
         
         login_container.add(logBtn);
 
-        /*logBtn.addActionListener(e ->{
-            this.router("registro");
-
-        });*/
+        logBtn.addActionListener(e -> registro());
 
 
 
@@ -226,4 +223,183 @@ public class AuthViews {
 
 
     }
+
+
+    public void registro(){
+            //el otro coso
+
+         JFrame ventana = new JFrame(); 
+
+
+        ventana.setSize(1000, 620); 
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setLocationRelativeTo(null);
+        ventana.setLayout(null);
+
+        JPanel rg_container = new JPanel();
+        rg_container.setBounds(500,50,400,470);
+        rg_container.setLayout(null);
+
+        ventana.add(rg_container);
+
+
+
+
+
+        rg_container.setBounds(500,50,400,470);
+        rg_container.setOpaque(true);
+        rg_container.setBackground(Color.pink);
+        rg_container.setLayout(null);
+        rg_container.setBorder(BorderFactory.createRaisedBevelBorder());
+        rg_container.setBorder(BorderFactory.createLoweredBevelBorder());
+
+
+
+        //La etiqueta
+        JLabel bio_tag = new JLabel("BIO");
+        bio_tag.setBounds(50,120,300,20);
+        bio_tag.setHorizontalAlignment(JLabel.CENTER);
+        bio_tag.setOpaque(true);
+        rg_container.add(bio_tag);
+        
+        JTextArea bio_text = new JTextArea();
+        bio_text.setLocation(50,150);
+        bio_text.setSize(300,80);
+        rg_container.add(bio_text);
+
+        //checkboxes
+
+        JCheckBox dulce = new JCheckBox("Dulce");
+        dulce.setBounds(50,260,100,40);
+        dulce.setOpaque(true);
+        dulce.setBackground(null);
+        rg_container.add(dulce);
+
+
+        JCheckBox salado = new JCheckBox("salado");
+        salado.setBounds(150,260,100,40);
+        salado.setOpaque(false);
+        rg_container.add(salado);
+
+
+        JCheckBox saludable = new JCheckBox("Saludable");
+        saludable.setBounds(250,260,100,40);
+        saludable.setOpaque(false);
+        rg_container.add(saludable);
+
+        //boton redondo 
+
+        JRadioButton accept_terms = new JRadioButton("Acepto los terminos");
+        accept_terms.setBounds(50,320,200,40);
+        accept_terms.setOpaque(true);
+        accept_terms.setBackground(null);
+        rg_container.add(accept_terms);
+
+        JRadioButton reject_terms = new JRadioButton("Rechazo los terminos");
+        reject_terms.setBounds(200,320,200,40);
+        reject_terms.setOpaque(false);
+        rg_container.add(reject_terms);
+
+        ButtonGroup terms = new ButtonGroup();
+        terms.add(accept_terms);
+        terms.add(reject_terms);
+        
+        //waza
+
+        String[] colonias = {"Camino real", "Miramar", "Diana laura", "8 de octubre"};
+
+        JComboBox colonias_combo = new JComboBox(colonias);
+
+        colonias_combo.setBounds(50,360,300,20);
+        rg_container.add(colonias_combo);
+
+        JButton register_btn = new JButton("crear cuenta");
+        register_btn.setBounds(50,390,300,30);
+        rg_container.add(register_btn);
+
+
+        JButton lg_btn = new JButton("ir al login");
+        lg_btn.setBounds(50,430,300,30);
+        rg_container.add(lg_btn);
+
+         lg_btn.addActionListener(e -> login());
+
+        JLabel rg_tittle = new JLabel();
+        rg_tittle.setText("Términos");
+        rg_tittle.setSize(300,20);
+        rg_tittle.setLocation(50,300);
+        rg_tittle.setBackground(Color.CYAN);
+        rg_tittle.setOpaque(true);
+        rg_tittle.setFont(new Font("Arial",Font.PLAIN,22));
+        rg_tittle.setHorizontalAlignment(JLabel.CENTER);
+        rg_container.add(rg_tittle);
+
+        JLabel preferencias = new JLabel();
+        preferencias.setText("Preferencias");
+        preferencias.setSize(300,20);
+        preferencias.setLocation(50,240);
+        preferencias.setBackground(Color.pink);
+        preferencias.setOpaque(false);
+        preferencias.setFont(new Font("Arial",Font.PLAIN,22));
+        preferencias.setHorizontalAlignment(JLabel.CENTER);
+        rg_container.add(preferencias);
+
+        JTextField nombreDeUsuario = new JTextField();
+        nombreDeUsuario.setSize(350,30);
+        nombreDeUsuario.setLocation(20,85);
+        rg_container.add(nombreDeUsuario);
+
+
+        JLabel nombre_etiqueta = new JLabel();
+        nombre_etiqueta.setText("Nombre de usuario");
+        nombre_etiqueta.setSize(300,20);
+        nombre_etiqueta.setLocation(50,61);
+        nombre_etiqueta.setBackground(Color.CYAN);
+        nombre_etiqueta.setOpaque(true);
+        nombre_etiqueta.setFont(new Font("Arial",Font.PLAIN,22));
+        nombre_etiqueta.setHorizontalAlignment(JLabel.CENTER);
+        rg_container.add(nombre_etiqueta);
+
+        JLabel acceso_etiqueta = new JLabel();
+        acceso_etiqueta.setText("Acceso");
+        acceso_etiqueta.setSize(200,20);
+        acceso_etiqueta.setLocation(100,20);
+       // acceso_etiqueta.setBackground(Color.CYAN);
+        acceso_etiqueta.setOpaque(true);
+        acceso_etiqueta.setFont(new Font("Arial",Font.PLAIN,22));
+        acceso_etiqueta.setHorizontalAlignment(JLabel.CENTER);
+        rg_container.add(acceso_etiqueta);
+
+
+          
+            register_btn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+                
+                boolean seleccion = dulce.isSelected() || salado.isSelected() || saludable.isSelected();
+    
+                if(!seleccion){
+                    dulce.setBorder(BorderFactory.createLineBorder(Color.red,3));
+                    dulce.setBackground(Color.red);
+                    System.out.println("Debe seleccionar al menos una preferencia");
+
+
+                }
+                
+                if(!accept_terms.isSelected()){
+                    accept_terms.setBackground(Color.red);
+                    System.out.println("Debes aceptar los términos para continuar");
+                }
+            }
+        
+        });
+        
+        ventana.setVisible(true);
+
+
+        }
+
+
 }
