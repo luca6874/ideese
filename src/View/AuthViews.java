@@ -1,5 +1,8 @@
 package View;
 
+
+import Models.AuthModel;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -40,6 +43,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import Controllers.HomeController;
+
 public class AuthViews {
 
     public AuthViews(){
@@ -48,6 +53,7 @@ public class AuthViews {
 
     public void login(){
         JFrame ventana = new JFrame();
+        AuthModel auth = new AuthModel();
 		
 		ventana.setSize(1000, 620); 
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -150,13 +156,11 @@ public class AuthViews {
         
         login_container.add(logBtn);
 
-        logBtn.addActionListener(e -> registro());
 
 
 
         //credenciales de prueba
-        String usuario2 = "Alex";
-        String contraseña = "EriMiLoba";
+       
 
 
          acces_btn.addActionListener(new ActionListener() {
@@ -198,18 +202,25 @@ public class AuthViews {
                  }
 				
 				 //validaciones de credenciales
-            if(email.equals(usuario2) && password.equals(contraseña)){
-                JOptionPane.showMessageDialog(null, "Login correcto, bienvenido a bimbo", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                
-                email_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
-                password_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+                    boolean acceso = auth.access(email, password);
 
-            }else{
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
-                
-                email_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
-                password_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
-            }
+                    if(acceso){
+                        JOptionPane.showMessageDialog(null, "Login correcto", "exito", JOptionPane.INFORMATION_MESSAGE);
+
+                        email_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+                        password_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+
+                        ventana.dispose(); 
+
+                        new HomeController();
+
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "error", JOptionPane.ERROR_MESSAGE);
+
+                        email_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+                        password_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+                    }
 
 			}
 
